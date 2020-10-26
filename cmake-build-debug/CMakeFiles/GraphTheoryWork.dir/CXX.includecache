@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
+
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.cpp
+stdio.h
+-
+iostream
+-
+algorithm
+-
+Graph.h
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
+
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
+Node.h
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
+Edge.h
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
+stdio.h
+-
+
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
+

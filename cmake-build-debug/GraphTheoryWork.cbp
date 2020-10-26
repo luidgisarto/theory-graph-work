@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="GraphTheoryWork"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GraphTheoryWork">
+				<Option output="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/GraphTheoryWork.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 GraphTheoryWork"/>
+					<CompileFile command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GraphTheoryWork/fast">
+				<Option output="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/GraphTheoryWork.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 GraphTheoryWork/fast"/>
+					<CompileFile command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/main.cpp">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.cpp">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.cpp">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.cpp">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

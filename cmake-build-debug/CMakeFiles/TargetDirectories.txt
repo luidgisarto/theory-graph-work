@@ -1,0 +1,3 @@
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/CMakeFiles/GraphTheoryWork.dir
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/CMakeFiles/rebuild_cache.dir
