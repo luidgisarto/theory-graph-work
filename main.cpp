@@ -6,10 +6,10 @@
 
 using namespace std;
 
-void readFile() {
+Graph *readFile(string inputFileName) {
     fstream file;
 
-    file.open("..\\inputs\\sample.txt");
+    file.open(inputFileName);
 
     cout << "Lendo arquivo" << endl;
 
@@ -38,15 +38,23 @@ void readFile() {
 
     cout << "leitura de arquivo finalizada" << endl;
 
+    return graph;
+}
+
+int main(int argc, char **argv) {
+    string inputFileName;
+
+    if(argc != 3) {
+        throw invalid_argument("Parâmetros inválidos");
+    }
+
+    inputFileName = argv[1];
+
+    Graph *graph = readFile(inputFileName);
+
     graph->printSequenceDegrees();
 
     graph->printGraph();
-}
-
-int main() {
-
-    readFile();
-
     return 0;
 }
 
