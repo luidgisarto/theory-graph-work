@@ -30,7 +30,7 @@ int Graph::getDegree() {
     int actualDegree;
     Node *node = first;
     while (node) {
-        if(node->getDegree() > degree){
+        if (node->getDegree() > degree) {
             degree = node->getDegree();
         }
         node = node->getNextNode();
@@ -41,7 +41,7 @@ int Graph::getDegree() {
 
 int Graph::getDegreeNode(int id) {
     Node *node = getNode(id);
-    if(node) {
+    if (node) {
         return node->getDegree();
     }
 
@@ -52,7 +52,7 @@ Node *Graph::getNode(int id) {
     Node *node = first;
 
     while (node) {
-        if(node->getId() == id) {
+        if (node->getId() == id) {
             return node;
         }
         node = node->getNextNode();
@@ -60,11 +60,11 @@ Node *Graph::getNode(int id) {
     return nullptr;
 }
 
-Node * Graph::getFirstNode() {
+Node *Graph::getFirstNode() {
     return first;
 }
 
-int * Graph::getSequenceDegrees() {
+int *Graph::getSequenceDegrees() {
     int *degrees = new int[vertex];
     int i = 0;
     Node *node = first;
@@ -79,7 +79,7 @@ int * Graph::getSequenceDegrees() {
 }
 
 void Graph::initialize(int totalNodes) {
-    for (int i = 0; i < totalNodes; ++i) {
+    for (int i = 1; i <= totalNodes; i++) {
         insertNode(i);
     }
 }
@@ -88,10 +88,15 @@ void Graph::removeEdge(Node *node) {}
 
 void Graph::insertNode(int id) {
     Node *node = new Node(id);
-    if(!isNull()){
-        node->setNextNode(first);
+    Node *aux = first;
+    if (isNull()) {
+        first = node;
+    } else {
+        while (aux->getNextNode()) {
+            aux = aux->getNextNode();
+        }
+        aux->setNextNode(node);
     }
-    first = node;
     vertex++;
 }
 
@@ -150,7 +155,7 @@ void Graph::printGraph() {
     while (node) {
         edge = node->getEdges();
         cout << "ID: \t" << node->getId() << endl;
-        cout << "Grau: \t" << node->getDegree()<< endl;
+        cout << "Grau: \t" << node->getDegree() << endl;
         cout << "Arestas: " << endl;
 
         while (edge) {
