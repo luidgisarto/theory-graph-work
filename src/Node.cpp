@@ -12,40 +12,48 @@ using namespace  std;
 Node::Node(int id) {
     this->value = id;
     this->degree = 0;
+    this->edges = new list<Edge>;
 }
 
-Node::~Node() {}
+Node::~Node() {
+    this->value = -1;
+    this->degree = 0;
+    this->edges = nullptr;
+}
 
 int Node::getValue() {
     return this->value;
 }
 
-bool Node::hasEdge(int nodeId) {
-    auto iterator = find_if(edges.begin(), edges.end(), [&](Edge *edge){
-        return edge->hasEdge(value, nodeId);
+bool Node::hasEdge(int n1, int n2) {
+//    for (auto it= this->edges->begin(); it != this->edges->end(); it++) {
+//        if(it->hasEdge(n1, n2)) {
+//            return true;
+//        }
+//    }
+//
+//    return  false;
+    auto iterator = find_if(this->edges->begin(), this->edges->end(), [&](Edge edge){
+        return edge.hasEdge(n1, n2);
     });
 
-    if(iterator != edges.end()){
+    if(iterator != this->edges->end()){
         return true;
     }
     return false;
 }
 
 void Node::insertEdge(Edge *edge) {
-    this->edges.push_back(edge);
+    this->edges->push_back(*edge);
     this->degree++;
-}
-
-list<Edge *> Node::getEdges() {
-    return this->edges;
 }
 
 list<int> Node::getAdj() {
     list<int> adj;
 
-    for (const auto &edge: this->edges) {
-        adj.push_back(edge->getFirstAdj());
-        adj.push_back(edge->getSecondAdj());
+    for (auto it = this->edges->begin(); it != this->edges->end(); it++){
+        adj.push_back(it->getFirstAdj());
+        adj.push_back(it->getSecondAdj());
     }
 
     return adj;
@@ -55,7 +63,7 @@ int Node::getIndex() {
     return this->index;
 }
 
-int Node::setIndex(int index) {
+void Node::setIndex(int index) {
     this->index = index;
 }
 

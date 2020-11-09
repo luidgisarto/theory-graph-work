@@ -16,15 +16,15 @@ private:
     int value;
     int index;
     int degree;
-    list<Edge*> edges;
+    list<Edge> *edges;
 public:
     Node(int id);
     ~Node();
     int getValue();
-    int setIndex(int index);
+    void setIndex(int index);
     int getIndex();
     void insertEdge(Edge *edge);
-    bool hasEdge(int nodeId);
+    bool hasEdge(int n1, int n2);
     list<Edge*> getEdges();
     list<int> getAdj();
 

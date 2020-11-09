@@ -11,7 +11,7 @@ void FileManager::readFile(char *inputFileName, Graph *graph) {
 
     file.open(inputFileName);
 
-    //cout << "Lendo arquivo" << endl;
+    cout << "Lendo arquivo" << endl;
 
     if(!file.is_open()) {
         //cout << "Erro ao abrir o arquivo " << endl;
@@ -27,16 +27,18 @@ void FileManager::readFile(char *inputFileName, Graph *graph) {
 
     //cout << total <<endl;
 
-    graph->setOrder(total);
-
     while (file >> n1 >> n2 >> edgeWeight) {
+        if(graph->getOrder() >= total) {
+            break;
+        }
+
         //cout << to_string(n1) + " " + to_string(n2) + " " + to_string(edgeWeight) <<endl;
         graph->insertEdge(n1, n2, edgeWeight);
     }
 
     file.close();
 
-    //cout << "leitura de arquivo finalizada" << endl;
+    cout << "leitura de arquivo finalizada" << endl;
 }
 
 void FileManager::writeFile(char *outputFileName) {

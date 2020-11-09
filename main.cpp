@@ -90,6 +90,7 @@ int main(int argc, char **argv) {
     cout << "Tempo de leitura do arquivo em milisegundos: " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
     cout << "Tempo de leitura do arquivo em segundos: " <<chrono::duration_cast<chrono::seconds>(end - start).count() << "s" << endl;
 
+    cout << "Vértices: " << graph->getOrder() << endl;
     cout << "Arestas: " << graph->getTotalEdges() << endl;
 
     cout << "Informe o nó de início: " << endl;

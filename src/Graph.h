@@ -17,19 +17,21 @@ class Graph {
 private:
     int order;
     int totalEdges;
-    list<Node*> nodes;
+    list<Node> *nodes;
 
 public:
     Graph();
     ~Graph();
     Node* getNode(int id);
+    list<Node> *getNodes();
     int getTotalEdges();
     bool hasNode(int id);
-    void insertNode(int id);
+    Node * insertNode(int id);
     void insertEdge(int n1, int n2, int weight);
     bool hasEdge(int n1, int n2);
     void setOrder(int order);
     int getLastIndex();
+    int getOrder();
     void breadthFirstSearch(int nodeValue, char *outputPath);
     void depthFirstSearch(int nodeValue, char *outputPath);
     void djikstraAlgorithm(Graph *graph, char *outputPath);
