@@ -3,45 +3,43 @@
 #include <iostream>
 #include <fstream>
 #include "src/Graph.h"
+#include "src/files/FileManager.h"
+#include <chrono>
 
 using namespace std;
 
-Graph *readFile(string inputFileName) {
-    fstream file;
-
-    file.open(inputFileName);
-
-    //cout << "Lendo arquivo" << endl;
-
-    if(!file.is_open()) {
-        cout << "Erro ao abrir o arquivo " << endl;
-        throw invalid_argument("Erro ao abrir arquivo para leitura.");
+void executeOperation(int option, int nodeValue, Graph *graph, char *outputPath) {
+    switch (option) {
+        case 1:
+            graph->breadthFirstSearch(nodeValue, outputPath);
+            break;
+        case 2:
+            graph->depthFirstSearch(nodeValue, outputPath);
+            break;
+        case 3:
+            graph->djikstraAlgorithm(graph, outputPath);
+            break;
+        case 4:
+            graph->floydAlgorithm(graph, outputPath);
+            break;
+        case 5:
+            graph->primAlgorithm(graph, outputPath);
+            break;
+        case 6:
+            graph->kruskalAlgorithm(graph, outputPath);
+            break;
+        case 7:
+            graph->printGraph(graph, outputPath);
+            break;
+        case 8:
+            graph->printSequenceDegrees(graph, outputPath);
+            break;
+        case 9:
+            break;
     }
-
-    int total;
-    int n1;
-    int n2;
-    int edgeWeight;
-
-    file >> total;
-
-    //cout << total <<endl;
-
-    Graph* graph = new Graph(total);
-
-    while (file >> n1 >> n2 >> edgeWeight) {
-        //cout << to_string(n1) + " " + to_string(n2) + " " + to_string(edgeWeight) <<endl;
-        graph->insertEdge(n1, n2, edgeWeight);
-    }
-
-    file.close();
-
-    //cout << "leitura de arquivo finalizada" << endl;
-
-    return graph;
 }
 
-void createMenu() {
+int createMenu() {
     int option = -1;
 
     cout << "" << endl;
@@ -67,19 +65,39 @@ void createMenu() {
     cout << "8 - Imprimir Sequência de Graus" << endl;
     cout << "9 - Sair" << endl;
 
+    cout << "" <<endl;
+
     cin >> option;
+
+    return option;
 }
 
 int main(int argc, char **argv) {
+    auto start = chrono::steady_clock::now();
+
     string inputFileName;
+    FileManager fileManager;
+    int selectedNode = -1;
+    Graph *graph = new Graph();
 
     if(argc != 3) {
         throw invalid_argument("Parâmetros inválidos");
     }
 
-    inputFileName = argv[1];
-    readFile(inputFileName);
-    createMenu();
+    fileManager.readFile(argv[1], graph);
+
+    auto end = chrono::steady_clock::now();
+    cout << "Tempo de leitura do arquivo em milisegundos: " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+    cout << "Tempo de leitura do arquivo em segundos: " <<chrono::duration_cast<chrono::seconds>(end - start).count() << "s" << endl;
+
+    cout << "Arestas: " << graph->getTotalEdges() << endl;
+
+    cout << "Informe o nó de início: " << endl;
+    cin >> selectedNode;
+
+    auto selectedOption = createMenu();
+
+    executeOperation(selectedOption, selectedNode, graph, argv[2]);
 
     return 0;
 }

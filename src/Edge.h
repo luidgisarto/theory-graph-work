@@ -8,21 +8,15 @@
 class Node;
 
 class Edge{
-public:
-    Edge(Node *src, Node *dest, int weight);
-    Edge(Node *src, Node *dest);
-    Edge();
-    ~Edge();
-    int getWeight();
-    Node *getSource();
-    Node *getDestination();
-    Edge *getNextEdge();
-    void setNextEdge(Edge *next);
 private:
     int weight;
-    Node *src;
-    Node *dest;
-    Edge *next;
+    int n1;
+    int n2;
+public:
+    Edge(int n1, int n2, int weight);
+    bool hasEdge(int n1, int n2);
+    int getFirstAdj();
+    int getSecondAdj();
 };
 
 

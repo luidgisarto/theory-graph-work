@@ -4,26 +4,31 @@
 
 #ifndef GRAPHTHEORYWORK_NODE_H
 #define GRAPHTHEORYWORK_NODE_H
+#include <stdio.h>
+#include <list>
+
+using namespace std;
 
 class Edge;
 
 class Node {
+private:
+    int value;
+    int index;
+    int degree;
+    list<Edge*> edges;
 public:
     Node(int id);
     ~Node();
-    int getId();
+    int getValue();
+    int setIndex(int index);
+    int getIndex();
+    void insertEdge(Edge *edge);
+    bool hasEdge(int nodeId);
+    list<Edge*> getEdges();
+    list<int> getAdj();
+
     int getDegree();
-    Node *getNextNode();
-    Edge *getEdges();
-    void insertEdge(Node *dest, int weight);
-    void insertEdge(Node *dest);
-    void removeEdge(Node *dest);
-    void setNextNode(Node *next);
-private:
-    int id;
-    int degree;
-    Node *next;
-    Edge *edges;
 };
 
 

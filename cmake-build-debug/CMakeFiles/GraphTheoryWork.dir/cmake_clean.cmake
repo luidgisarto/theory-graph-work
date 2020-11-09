@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/GraphTheoryWork.dir/src/Edge.cpp.obj"
   "CMakeFiles/GraphTheoryWork.dir/src/Graph.cpp.obj"
   "CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.obj"
+  "CMakeFiles/GraphTheoryWork.dir/src/files/FileManager.cpp.obj"
   "GraphTheoryWork.exe"
   "GraphTheoryWork.exe.manifest"
   "GraphTheoryWork.pdb"

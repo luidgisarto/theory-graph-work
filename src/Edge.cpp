@@ -3,39 +3,27 @@
 //
 
 #include "Edge.h"
+#include <stdio.h>
+#include <iostream>
 
-Edge::Edge() {}
-
-Edge::Edge(Node *src, Node *dest, int weight) {
-    this->src = src;
-    this->dest = dest;
+Edge::Edge(int n1, int n2, int weight) {
+    this->n1 = n1;
+    this->n2 = n2;
     this->weight = weight;
 }
 
-Edge::Edge(Node *src, Node *dest) {
-    this->src = src;
-    this->dest = dest;
-    this->weight = 0;
+bool Edge::hasEdge(int n1, int n2) {
+    if((this->n1 == n1 && this->n2 == n2)
+    || this->n2 == n1 && this->n2 == n1) {
+        return true;
+    }
+    return false;
 }
 
-Edge::~Edge() {}
-
-int Edge::getWeight() {
-    return this->weight;
+int Edge::getFirstAdj() {
+    return this->n1;
 }
 
-Node * Edge::getSource() {
-    return this->src;
-}
-
-Node * Edge::getDestination() {
-    return this->dest;
-}
-
-Edge * Edge::getNextEdge() {
-    return this->next;
-}
-
-void Edge::setNextEdge(Edge *next) {
-    this->next = next;
+int Edge::getSecondAdj() {
+    return this->n2;
 }

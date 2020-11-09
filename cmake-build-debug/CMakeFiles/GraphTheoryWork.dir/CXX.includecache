@@ -6,19 +6,25 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/main.cpp
-iostream
--
-string
--
-iostream
--
-fstream
--
-src/Graph.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
-
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
+
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.cpp
+stdio.h
+-
+iostream
+-
+Graph.h
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
+Edge.h
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
+Node.h
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
+queue
+-
+stack
+-
+algorithm
+-
 
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
 Node.h
@@ -27,6 +33,12 @@ Edge.h
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
 stdio.h
 -
+list
+-
 
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
+stdio.h
+-
+list
+-
 

@@ -4,168 +4,191 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <algorithm>
 #include "Graph.h"
+#include "Edge.h"
+#include "Node.h"
+#include <queue>
+#include <stack>
+#include <algorithm>
 
-Graph::Graph() {}
+using namespace std;
 
-Graph::Graph(int totalNodes) {
-    this->vertex = 0;
-    initialize(totalNodes);
+Graph::~Graph() {
+    this->order = 0;
+    this->totalEdges = 0;
 }
 
-Graph::Graph(int totalNodes, bool digraf) {
-    this->digraf = digraf;
-    initialize(totalNodes);
+void Graph::insertNode(int id) {
+    auto lastIndex = getLastIndex();
+    auto newNode = new Node(id);
+    newNode->setIndex(lastIndex);
+    this->nodes.push_back(newNode);
 }
 
-Graph::~Graph() {}
+bool Graph::hasNode(int id) {
+    auto iterator = find_if(this->nodes.begin(), this->nodes.end(), [&](Node *node) {
+        return node->getValue() == id;
+    });
 
-int Graph::getOrder() {
-    return vertex;
-}
-
-int Graph::getDegree() {
-    int degree = 0;
-    int actualDegree;
-    Node *node = first;
-    while (node) {
-        if (node->getDegree() > degree) {
-            degree = node->getDegree();
-        }
-        node = node->getNextNode();
+    if (iterator != this->nodes.end()) {
+        return true;
     }
-
-    return degree;
-}
-
-int Graph::getDegreeNode(int id) {
-    Node *node = getNode(id);
-    if (node) {
-        return node->getDegree();
-    }
-
-    return 0;
+    return false;
 }
 
 Node *Graph::getNode(int id) {
-    Node *node = first;
+    auto iterator = find_if(this->nodes.begin(), this->nodes.end(), [&](Node *node) {
+        return node->getValue() == id;
+    });
 
-    while (node) {
-        if (node->getId() == id) {
-            return node;
-        }
-        node = node->getNextNode();
+    if (iterator != nodes.end()) {
+        return *iterator;
     }
+
     return nullptr;
 }
 
-Node *Graph::getFirstNode() {
-    return first;
-}
-
-int *Graph::getSequenceDegrees() {
-    int *degrees = new int[vertex];
-    int i = 0;
-    Node *node = first;
-    while (node) {
-        degrees[i] = node->getDegree();
-        i++;
-        node = node->getNextNode();
-    }
-    sort(degrees, degrees + vertex, greater<int>());
-
-    return degrees;
-}
-
-void Graph::initialize(int totalNodes) {
-    for (int i = 1; i <= totalNodes; i++) {
-        insertNode(i);
-    }
-}
-
-void Graph::removeEdge(Node *node) {}
-
-void Graph::insertNode(int id) {
-    Node *node = new Node(id);
-    Node *aux = first;
-    if (isNull()) {
-        first = node;
-    } else {
-        while (aux->getNextNode()) {
-            aux = aux->getNextNode();
+void Graph::insertEdge(int n1, int n2, int weight) {
+    if (!hasEdge(n1, n2)) {
+        if (!this->hasNode(n1)) {
+            this->insertNode(n1);
         }
-        aux->setNextNode(node);
-    }
-    vertex++;
-}
 
-void Graph::removeNode(int id) {}
-
-void Graph::insertEdge(int start, int end, int weight) {
-    Node *firstNode = NULL;
-    Node *lastNode = NULL;
-    Node *actual = first;
-    while ((firstNode == NULL || lastNode == NULL) && actual != NULL) {
-        if (actual->getId() == start) {
-            firstNode = actual;
+        if (!this->hasNode(n2)) {
+            this->insertNode(n2);
         }
-        if (actual->getId() == end) {
-            lastNode = actual;
+
+        auto *node1 = getNode(n1);
+        auto *node2 = getNode(n2);
+
+        node1->insertEdge(new Edge(n1, n2, weight));
+        node2->insertEdge(new Edge(n2, n1, weight));
+
+        this->totalEdges++;
+    }
+}
+
+bool Graph::hasEdge(int n1, int n2) {
+    auto iterator = find_if(nodes.begin(), nodes.end(), [&](Node *node) {
+        return node->hasEdge(n1) && node->hasEdge(n2);
+    });
+
+    if (iterator != nodes.end()) {
+        return true;
+    }
+    return false;
+}
+
+void Graph::setOrder(int order) {
+    this->order = order;
+}
+
+Graph::Graph() {
+    this->order = 0;
+    this->totalEdges = 0;
+}
+
+int Graph::getLastIndex() {
+    return this->nodes.size();
+}
+
+void Graph::breadthFirstSearch(int nodeValue, char *outputPath) {
+    try {
+        Node *current;
+        queue<Node *> queue;
+        vector<bool> visited(this->order, false);
+
+        current = getNode(nodeValue);
+
+        cout << "Início da Busca em largura" << endl;
+
+        cout << current->getValue() << "\t";
+
+        visited[current->getIndex()] = true;
+
+        while (true) {
+            for (const auto &nodeId: current->getAdj()) {
+                auto node = getNode(nodeId);
+
+                if (!visited[node->getIndex()]) {
+                    cout << node->getValue() << "\t";
+                    visited[node->getIndex()] = true;
+                    queue.push(node);
+                }
+            }
+
+            if (queue.empty()) {
+                break;
+            }
+
+            current = queue.front();
+            queue.pop();
         }
-        actual = actual->getNextNode();
-    }
 
-    if (firstNode && lastNode) {
-        firstNode->insertEdge(lastNode, weight);
-        if (!digraf) {
-            lastNode->insertEdge(firstNode, weight);
+        cout << "\nFim da Busca em largura" << endl;
+    }
+    catch (...) {
+        cout << "throw some exception" << endl;
+        throw;
+    }
+}
+
+void Graph::depthFirstSearch(int nodeValue, char *outputPath) {
+    stack<Node *> stack;
+    vector<bool> visited(this->order, false);
+    Node *current;
+    Node *node;
+
+    current = this->nodes.front();
+    while (true) {
+        if (!visited[current->getIndex()]) {
+            cout << "Visitando vértice: " << current->getValue() << endl;
+
+            visited[current->getIndex()] = true;
+            stack.push(getNode(current->getValue()));
+        }
+
+        bool find = false;
+        for (const auto &nodeId: current->getAdj()) {
+            node = getNode(nodeId);
+
+            if (!visited[node->getIndex()]) {
+                find = true;
+                break;
+            }
+        }
+
+        if (find) {
+            current = node;
+        } else {
+            stack.pop();
+
+            if (stack.empty()) {
+                break;
+            }
+
+            current = stack.top();
         }
     }
 }
 
-void Graph::removeEdge(int start, int end) {}
+void Graph::printGraph(Graph *graph, char *outputPath) {}
 
-bool Graph::isNull() {
-    return first == NULL;
+void Graph::kruskalAlgorithm(Graph *graph, char *outputPath) {}
+
+void Graph::printSequenceDegrees(Graph *graph, char *outputPath) {}
+
+void Graph::primAlgorithm(Graph *graph, char *outputPath) {}
+
+void Graph::djikstraAlgorithm(Graph *graph, char *outputPath) {}
+
+void Graph::floydAlgorithm(Graph *graph, char *outputPath) {}
+
+int Graph::getTotalEdges() {
+   return totalEdges;
 }
 
-bool Graph::isTrivial() {
-    return first && first->getEdges() == NULL;
-}
 
-void Graph::printSequenceDegrees() {
-    int *degrees = getSequenceDegrees();
 
-    cout << "[";
-    for (int i = 0; i < vertex; i++) {
-        cout << degrees[i] << (i + 1 == vertex ? "" : ",");
-    }
-    cout << "]" << endl;
-}
-
-void Graph::printGraph() {
-    Node *node = first;
-    Edge *edge;
-
-    cout << "Ordem do grafo: " << getOrder() << endl;
-    cout << "Grau do grafo: " << getDegree() << endl;
-    cout << "Vertices: " << endl << endl << "------" << endl << endl;
-
-    while (node) {
-        edge = node->getEdges();
-        cout << "ID: \t" << node->getId() << endl;
-        cout << "Grau: \t" << node->getDegree() << endl;
-        cout << "Arestas: " << endl;
-
-        while (edge) {
-            cout << "\t=>" << edge->getDestination()->getId() << ": " << edge->getWeight()
-                 << endl;
-            edge = edge->getNextEdge();
-        }
-        node = node->getNextNode();
-        cout << "------" << endl << endl;
-    }
-}
 
 

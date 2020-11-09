@@ -3,65 +3,62 @@
 //
 
 #include <stdio.h>
+#include <algorithm>
 #include "Node.h"
 #include "Edge.h"
 
+using namespace  std;
+
 Node::Node(int id) {
-    this->id = id;
-    this->next = NULL;
-    this->edges = NULL;
+    this->value = id;
     this->degree = 0;
 }
 
 Node::~Node() {}
 
-int Node::getId() {
-    return this->id;
+int Node::getValue() {
+    return this->value;
+}
+
+bool Node::hasEdge(int nodeId) {
+    auto iterator = find_if(edges.begin(), edges.end(), [&](Edge *edge){
+        return edge->hasEdge(value, nodeId);
+    });
+
+    if(iterator != edges.end()){
+        return true;
+    }
+    return false;
+}
+
+void Node::insertEdge(Edge *edge) {
+    this->edges.push_back(edge);
+    this->degree++;
+}
+
+list<Edge *> Node::getEdges() {
+    return this->edges;
+}
+
+list<int> Node::getAdj() {
+    list<int> adj;
+
+    for (const auto &edge: this->edges) {
+        adj.push_back(edge->getFirstAdj());
+        adj.push_back(edge->getSecondAdj());
+    }
+
+    return adj;
+}
+
+int Node::getIndex() {
+    return this->index;
+}
+
+int Node::setIndex(int index) {
+    this->index = index;
 }
 
 int Node::getDegree() {
     return this->degree;
 }
-
-Edge * Node::getEdges() {
-    return this->edges;
-}
-
-Node * Node::getNextNode() {
-    return  this->next;
-}
-
-void Node::insertEdge(Node *dest, int weight) {
-    Edge *edge = new Edge(this, dest, weight);
-    edge->setNextEdge(edges);
-    edges = edge;
-    degree++;
-}
-
-void Node::insertEdge(Node *dest) {
-    insertEdge(dest, 0);
-}
-
-void Node::removeEdge(Node *dest) {
-    Edge *edge = this->edges;
-    Edge *previous = NULL;
-    while (edge) {
-        if (edge->getDestination() == dest) {
-            if (previous == NULL) {
-                edges = edge->getNextEdge();
-            } else {
-                previous->setNextEdge(edge->getNextEdge());
-            }
-            delete edge;
-            break;
-        }
-        previous = edge;
-        edge = edge->getNextEdge();
-    }
-    degree--;
-}
-
-void Node::setNextNode(Node *next) {
-    this->next = next;
-}
-

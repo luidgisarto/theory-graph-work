@@ -250,6 +250,33 @@ src/Node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.s
 .PHONY : src/Node.cpp.s
 
+src/files/FileManager.obj: src/files/FileManager.cpp.obj
+
+.PHONY : src/files/FileManager.obj
+
+# target to build an object file
+src/files/FileManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/files/FileManager.cpp.obj
+.PHONY : src/files/FileManager.cpp.obj
+
+src/files/FileManager.i: src/files/FileManager.cpp.i
+
+.PHONY : src/files/FileManager.i
+
+# target to preprocess a source file
+src/files/FileManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/files/FileManager.cpp.i
+.PHONY : src/files/FileManager.cpp.i
+
+src/files/FileManager.s: src/files/FileManager.cpp.s
+
+.PHONY : src/files/FileManager.s
+
+# target to generate assembly for a file
+src/files/FileManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/files/FileManager.cpp.s
+.PHONY : src/files/FileManager.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -271,6 +298,9 @@ help:
 	@echo ... src/Node.obj
 	@echo ... src/Node.i
 	@echo ... src/Node.s
+	@echo ... src/files/FileManager.obj
+	@echo ... src/files/FileManager.i
+	@echo ... src/files/FileManager.s
 .PHONY : help
 
 
