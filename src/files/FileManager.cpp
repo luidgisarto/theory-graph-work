@@ -25,13 +25,10 @@ void FileManager::readFile(char *inputFileName, Graph *graph) {
 
     file >> total;
 
-    //cout << total <<endl;
+    graph->setTotalNodes(total);
+    cout << total <<endl;
 
     while (file >> n1 >> n2 >> edgeWeight) {
-        if(graph->getOrder() >= total) {
-            break;
-        }
-
         //cout << to_string(n1) + " " + to_string(n2) + " " + to_string(edgeWeight) <<endl;
         graph->insertEdge(n1, n2, edgeWeight);
     }

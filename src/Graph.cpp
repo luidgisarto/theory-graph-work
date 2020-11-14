@@ -16,6 +16,7 @@ using namespace std;
 Graph::Graph() {
     this->order = 0;
     this->totalEdges = 0;
+    this->totalNodes = 0;
     this->nodes = new list<Node>;
 }
 
@@ -29,17 +30,20 @@ int Graph::getOrder() {
     return this->order;
 }
 
-Node * Graph::insertNode(int id) {
-    auto lastIndex = getLastIndex();
+Node *Graph::insertNode(int id) {
     auto *newNode = new Node(id);
-    newNode->setIndex(lastIndex);
+    newNode->setIndex(this->order);
     this->nodes->push_back(*newNode);
     this->order++;
     return newNode;
 }
 
-list<Node> * Graph::getNodes() {
+list<Node> *Graph::getNodes() {
     return this->nodes;
+}
+
+void Graph::setTotalNodes(int total) {
+    this->totalNodes = total;
 }
 
 bool Graph::hasNode(int id) {
@@ -47,10 +51,7 @@ bool Graph::hasNode(int id) {
         return node.getValue() == id;
     });
 
-    if (iterator != this->nodes->end()) {
-        return true;
-    }
-    return false;
+    return iterator != this->nodes->end();
 }
 
 Node *Graph::getNode(int id) {
@@ -66,42 +67,26 @@ Node *Graph::getNode(int id) {
 }
 
 void Graph::insertEdge(int n1, int n2, int weight) {
-    if (!hasEdge(n1, n2)) {
-        auto *node1 = getNode(n1);
-        auto *node2 = getNode(n2);
+    auto *node1 = getNode(n1);
+    auto *node2 = getNode(n2);
 
-        if (node1 == NULL) {
-            node1 = this->insertNode(n1);
-        }
+    if (node1 == NULL) {
+        node1 = this->insertNode(n1);
+    }
 
-        if (node2 == NULL) {
-            node2 = this->insertNode(n2);
-        }
-
+    if (node2 == NULL) {
+        node2 = this->insertNode(n2);
+    }
+    if (!hasEdge(node1, node2)) {
         node1->insertEdge(new Edge(n1, n2, weight));
         node2->insertEdge(new Edge(n2, n1, weight));
-
-        cout << this->order << endl;
-
+        //cout << "Order:" << this->order << endl;
         this->totalEdges++;
     }
 }
 
-bool Graph::hasEdge(int n1, int n2) {
-//    for (auto it = this->nodes->begin(); it != this->nodes->end(); it++) {
-//        if(it->hasEdge(n1,n2)){
-//            return true;
-//        }
-//    }
-//    return false;
-auto iterator = find_if(this->nodes->begin(), this->nodes->end(), [&](Node node) {
-    return node.hasEdge(n1, n2);
-});
-
-if (iterator != this->nodes->end()) {
-    return true;
-}
-return false;
+bool Graph::hasEdge(Node* n1, Node* n2) {
+    return n1->hasEdge(n1->getValue(), n2->getValue());
 }
 
 void Graph::setOrder(int order) {
@@ -109,7 +94,7 @@ void Graph::setOrder(int order) {
 }
 
 int Graph::getLastIndex() {
-    return this->nodes->size();
+    return this->order;
 }
 
 void Graph::breadthFirstSearch(int nodeValue, char *outputPath) {
@@ -118,7 +103,7 @@ void Graph::breadthFirstSearch(int nodeValue, char *outputPath) {
         queue<Node *> queue;
         vector<bool> visited(this->order, false);
 
-        if(!hasNode(nodeValue)) {
+        if (!hasNode(nodeValue)) {
             throw invalid_argument("Nó não encontrado no grafo");
         }
 
@@ -126,7 +111,7 @@ void Graph::breadthFirstSearch(int nodeValue, char *outputPath) {
 
         cout << "Início da Busca em largura" << endl;
 
-        if(!current) {
+        if (!current) {
             *current = this->nodes->front();
         }
 
@@ -138,10 +123,10 @@ void Graph::breadthFirstSearch(int nodeValue, char *outputPath) {
             for (const auto &nodeId: current->getAdj()) {
                 auto node = getNode(nodeId);
 
-                    if (!visited[node->getIndex()]) {
-                        cout << node->getValue() << "\n";
-                        visited[node->getIndex()] = true;
-                        queue.push(node);
+                if (!visited[node->getIndex()]) {
+                    cout << node->getValue() << "\n";
+                    visited[node->getIndex()] = true;
+                    queue.push(node);
                 }
             }
 
@@ -167,14 +152,14 @@ void Graph::depthFirstSearch(int nodeValue, char *outputPath) {
     Node *current;
     Node *node;
 
-    if(!hasNode(nodeValue)) {
+    if (!hasNode(nodeValue)) {
         throw invalid_argument("Nó não encontrado no grafo");
     }
 
     current = getNode(nodeValue);
     while (true) {
         if (!visited[current->getIndex()]) {
-            cout << "Visitando vértice: " << current->getValue() << endl;
+            cout << current->getValue() << "\t" << endl;
 
             visited[current->getIndex()] = true;
             stack.push(getNode(current->getValue()));
@@ -217,7 +202,7 @@ void Graph::djikstraAlgorithm(Graph *graph, char *outputPath) {}
 void Graph::floydAlgorithm(Graph *graph, char *outputPath) {}
 
 int Graph::getTotalEdges() {
-   return totalEdges;
+    return totalEdges;
 }
 
 

@@ -17,6 +17,7 @@ class Graph {
 private:
     int order;
     int totalEdges;
+    int totalNodes;
     list<Node> *nodes;
 
 public:
@@ -28,7 +29,7 @@ public:
     bool hasNode(int id);
     Node * insertNode(int id);
     void insertEdge(int n1, int n2, int weight);
-    bool hasEdge(int n1, int n2);
+    bool hasEdge(Node* n1, Node* n2);
     void setOrder(int order);
     int getLastIndex();
     int getOrder();
@@ -40,6 +41,7 @@ public:
     void kruskalAlgorithm(Graph *graph, char *outputPath);
     void printGraph(Graph *graph, char *outputPath);
     void printSequenceDegrees(Graph *graph, char *outputPath);
+    void setTotalNodes(int total);
 };
 
 

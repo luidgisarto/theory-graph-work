@@ -29,6 +29,8 @@ public:
     list<int> getAdj();
 
     int getDegree();
+
+    Edge *getEdge(int n1, int n2);
 };
 
 

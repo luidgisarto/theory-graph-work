@@ -26,21 +26,19 @@ int Node::getValue() {
 }
 
 bool Node::hasEdge(int n1, int n2) {
-//    for (auto it= this->edges->begin(); it != this->edges->end(); it++) {
-//        if(it->hasEdge(n1, n2)) {
-//            return true;
-//        }
-//    }
-//
-//    return  false;
+    return getEdge(n1, n2) != nullptr;
+}
+
+Edge * Node::getEdge(int n1, int n2) {
     auto iterator = find_if(this->edges->begin(), this->edges->end(), [&](Edge edge){
-        return edge.hasEdge(n1, n2);
+        return (edge.getFirstAdj() == n1 || edge.getSecondAdj() == n1)
+        || (edge.getFirstAdj() == n2 || edge.getSecondAdj() == n2);
     });
 
-    if(iterator != this->edges->end()){
-        return true;
+    if(iterator != this->edges->end()) {
+        return iterator.operator->();
     }
-    return false;
+    return nullptr;
 }
 
 void Node::insertEdge(Edge *edge) {
