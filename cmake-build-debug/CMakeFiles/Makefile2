@@ -93,12 +93,12 @@ clean: CMakeFiles/GraphTheoryWork.dir/clean
 CMakeFiles/GraphTheoryWork.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5 "Built target GraphTheoryWork"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5,6,7 "Built target GraphTheoryWork"
 .PHONY : CMakeFiles/GraphTheoryWork.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/GraphTheoryWork.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\cmake-build-debug\CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\cmake-build-debug\CMakeFiles" 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/GraphTheoryWork.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/GraphTheoryWork.dir/rule

@@ -250,6 +250,60 @@ src/Node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.s
 .PHONY : src/Node.cpp.s
 
+src/managers/FileManager.obj: src/managers/FileManager.cpp.obj
+
+.PHONY : src/managers/FileManager.obj
+
+# target to build an object file
+src/managers/FileManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj
+.PHONY : src/managers/FileManager.cpp.obj
+
+src/managers/FileManager.i: src/managers/FileManager.cpp.i
+
+.PHONY : src/managers/FileManager.i
+
+# target to preprocess a source file
+src/managers/FileManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.i
+.PHONY : src/managers/FileManager.cpp.i
+
+src/managers/FileManager.s: src/managers/FileManager.cpp.s
+
+.PHONY : src/managers/FileManager.s
+
+# target to generate assembly for a file
+src/managers/FileManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.s
+.PHONY : src/managers/FileManager.cpp.s
+
+src/managers/MenuManager.obj: src/managers/MenuManager.cpp.obj
+
+.PHONY : src/managers/MenuManager.obj
+
+# target to build an object file
+src/managers/MenuManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.obj
+.PHONY : src/managers/MenuManager.cpp.obj
+
+src/managers/MenuManager.i: src/managers/MenuManager.cpp.i
+
+.PHONY : src/managers/MenuManager.i
+
+# target to preprocess a source file
+src/managers/MenuManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.i
+.PHONY : src/managers/MenuManager.cpp.i
+
+src/managers/MenuManager.s: src/managers/MenuManager.cpp.s
+
+.PHONY : src/managers/MenuManager.s
+
+# target to generate assembly for a file
+src/managers/MenuManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GraphTheoryWork.dir\build.make CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.s
+.PHONY : src/managers/MenuManager.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -271,6 +325,12 @@ help:
 	@echo ... src/Node.obj
 	@echo ... src/Node.i
 	@echo ... src/Node.s
+	@echo ... src/managers/FileManager.obj
+	@echo ... src/managers/FileManager.i
+	@echo ... src/managers/FileManager.s
+	@echo ... src/managers/MenuManager.obj
+	@echo ... src/managers/MenuManager.i
+	@echo ... src/managers/MenuManager.s
 .PHONY : help
 
 

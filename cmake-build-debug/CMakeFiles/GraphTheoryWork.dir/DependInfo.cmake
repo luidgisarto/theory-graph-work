@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.cpp" "C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/CMakeFiles/GraphTheoryWork.dir/src/Edge.cpp.obj"
   "C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.cpp" "C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/CMakeFiles/GraphTheoryWork.dir/src/Graph.cpp.obj"
   "C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.cpp" "C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.obj"
+  "C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.cpp" "C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj"
+  "C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/MenuManager.cpp" "C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/cmake-build-debug/CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

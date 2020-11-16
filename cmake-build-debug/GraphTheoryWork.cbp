@@ -101,6 +101,18 @@
 		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h">
 			<Option target="GraphTheoryWork"/>
 		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.cpp">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.h">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/MenuManager.cpp">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/MenuManager.h">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
 		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
