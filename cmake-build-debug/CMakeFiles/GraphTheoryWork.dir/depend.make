@@ -6,6 +6,7 @@ CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/Edge.h
 CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/Graph.h
 CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/Node.h
 CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/managers/FileManager.h
+CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/managers/MenuManager.h
 
 CMakeFiles/GraphTheoryWork.dir/src/Edge.cpp.obj: ../src/Edge.cpp
 CMakeFiles/GraphTheoryWork.dir/src/Edge.cpp.obj: ../src/Edge.h

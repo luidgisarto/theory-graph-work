@@ -26,6 +26,13 @@ public:
     void insertEdge(int n1, int n2, int weight);
     void setTotalNodes(int total);
     bool hasNode(int info);
+    void breadthFirstSearch(int nodeInfo, char *outputPath);
+    void depthFirstSearch(int nodeInfo, char *outputPath);
+    int djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath);
+
+    bool hasVisited(bool *visited);
+
+    int minDistance(int *dist, bool *visited);
 };
 
 

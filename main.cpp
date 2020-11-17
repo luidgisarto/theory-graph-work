@@ -34,6 +34,9 @@ int main(int argc, char **argv) {
 
     fileManager->writeFile();
 
+
+    graph->djisktraAlgorithm(1, 6, outputFileName);
+
     return 0;
 }
 

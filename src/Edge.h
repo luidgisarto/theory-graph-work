@@ -11,7 +11,7 @@ public:
     ~Edge();
     int getWeight();
     Node *getSource();
-    Node *getDestination();
+    Node *getAdjacent();
     Edge *getProx();
     void setProx(Edge *next);
 private:
@@ -19,6 +19,7 @@ private:
     Node *src; //ponteiro pro primeiro no da aresta
     Node *dest; // ponteiro pro segundo nó da aresta
     Edge *next; //pronteiro pra próxima aresta
+    Edge *getAdj(int nodeInfo);
 };
 
 

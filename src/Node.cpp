@@ -73,7 +73,7 @@ bool Node::hasEdge(int nodeInfo) {
     //função que pecorre a lista de arestas e verifica se  a não existência de um self-loop, ou uma aresta igual
     while (aux) {
         auto edgeSrc = aux->getSource();
-        auto edgeDest = aux->getDestination();
+        auto edgeDest = aux->getAdjacent();
 
         if (edgeSrc->getInfo() == this->info
         && edgeDest->getInfo() == nodeInfo
@@ -91,4 +91,12 @@ Edge *Node::getFirstEdge() {
     return this->edges;
 }
 
-
+/* @fuction atribui o indíce de inserção do nó
+ * @param index - indice do nó*/
+void Node::setIndex(int index) {
+    this->index = index;
+}
+/* @fuction retorna o indíce de inserção do nó*/
+int Node::getIndex() {
+    return this->index;
+}

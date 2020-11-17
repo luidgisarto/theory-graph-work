@@ -37,8 +37,8 @@ Node * Edge::getSource() {
 }
 
 /*
-* @fuction retorna o ponteiro pro segundo nó*/
-Node * Edge::getDestination() {
+* @fuction retorna o ponteiro pro segundo nó (nó adjacente)*/
+Node * Edge::getAdjacent() {
     return this->dest;
 }
 
@@ -53,3 +53,4 @@ Edge * Edge::getProx() {
 void Edge::setProx(Edge *next) {
     this->next = next;
 }
+

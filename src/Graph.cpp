@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <algorithm>
+#include <queue>
+#include <stack>
 #include "Graph.h"
 
 //construtor do grafo
@@ -73,15 +75,24 @@ void Graph::setTotalNodes(int total) {
  * */
 Node *Graph::insertNode(int info) {
     Node *p = nullptr;
-    if(this->order < this->totalNodes) {
+    Node *aux = first;
+    Node *current;
+    if (this->order < this->totalNodes) {
         p = new Node(info);
-        if(first) {
-            p->setProx(first);
+        p->setIndex(this->order);
+
+        if(!first){
+            first = p;
         }
-        first = p;
+        else {
+            while (aux) {
+                current = aux;
+                aux = aux->getProx();
+            }
+            current->setProx(p);
+        }
         this->order++;
     }
-
     return p;
 }
 
@@ -135,7 +146,7 @@ int Graph::getDegree() {
     int degree = 0;
 
     while (aux) {
-        if(aux->getDegree() > degree) {
+        if (aux->getDegree() > degree) {
             degree = aux->getDegree();
         }
         aux = aux->getProx();
@@ -161,5 +172,163 @@ float Graph::getRelativeFrequency(int degree) {
     return frequency;
 }
 
+void Graph::breadthFirstSearch(int nodeInfo, char *outputPath) {
+    Node *p = getNode(nodeInfo);
+    queue<int> queue;
 
+    if (!p) {
+        return;
+    }
+
+    bool visited[this->order];
+
+    for (int i = 0; i < this->order; ++i) {
+        visited[i] = false;
+    }
+
+    queue.push(p->getInfo());
+    visited[p->getIndex()] = true;
+    cout << p->getInfo() << endl;
+    Node *adj;
+    Edge *aux;
+    while (!queue.empty()) {
+        aux = p->getFirstEdge();
+        while (aux) {
+            adj = aux->getAdjacent();
+            auto index = adj->getIndex();
+
+            if (!visited[index]) {
+                visited[index] = true;
+                queue.push(adj->getInfo());
+                cout << adj->getInfo() << endl;
+            } else {
+                aux = aux->getProx();
+            }
+        }
+
+        queue.pop();
+        if (!queue.empty()) {
+            p = getNode(queue.front());
+        }
+    }
+
+}
+
+void Graph::depthFirstSearch(int nodeInfo, char *outputPath) {
+    Node *p = getNode(nodeInfo);
+    stack<int> stack;
+
+    if (!p) {
+        return;
+    }
+
+    bool visited[this->order];
+
+    for (int i = 0; i < this->order; ++i) {
+        visited[i] = false;
+    }
+
+    stack.push(p->getInfo());
+    visited[p->getIndex()] = true;
+    cout << p->getInfo() << endl;
+
+    Edge *edge;
+
+    while (!stack.empty()) {
+        edge = p->getFirstEdge();
+        while (edge) {
+            auto adj = edge->getAdjacent();
+            auto index = adj->getIndex();
+
+            if (!visited[index]) {
+                visited[index] = true;
+                stack.push(adj->getInfo());
+                cout << adj->getInfo() << endl;
+                p = getNode(stack.top());
+                edge = p->getFirstEdge();
+            } else {
+                edge = edge->getProx();
+            }
+        }
+        stack.pop();
+
+        if (!stack.empty()) {
+            p = getNode(stack.top());
+        }
+    }
+}
+
+int Graph::djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath) {
+    int dist[this->order];
+    bool visited[this->order];
+    int nodes[this->order];
+
+    Node *start = getNode(srcInfo);
+    Node *dest = getNode(destInfo);
+
+    Node *aux = start;
+
+    for (int i = 0; i < this->order; ++i) {
+        nodes[i] = 0;
+    }
+
+    for (int i = 0; i < this->order; ++i) {
+        visited[i] = false;
+        dist[i] = INT_MAX/2;
+        nodes[aux->getIndex()] = aux->getInfo();
+        aux = aux->getProx();
+    }
+
+    dist[start->getIndex()] = 0;
+
+    priority_queue < pair<int, int>,
+            vector<pair<int, int> >, greater<pair<int, int> > > pq;
+
+    // a distância de orig para orig é 0
+    dist[start->getIndex()] = 0;
+
+    // insere na fila
+    pq.push(make_pair(dist[start->getIndex()], start->getInfo()));
+
+    // loop do algoritmo
+    while(!pq.empty())
+    {
+        pair<int, int> p = pq.top(); // extrai o pair do topo
+        int u = p.second; // obtém o vértice do pair
+        pq.pop(); // remove da fila
+
+        Node *n = getNode(u);
+
+        // verifica se o vértice não foi expandido
+        if(visited[n->getIndex()] == false)
+        {
+            // marca como visitado
+            visited[n->getIndex()] = true;
+
+            Edge *e = n->getFirstEdge();
+
+            while(e) {
+                // obtém o vértice adjacente e o custo da aresta
+                Node *v = e->getAdjacent();
+                int costEdge = e->getWeight();
+
+                // relaxamento (u, v)
+                if(dist[v->getIndex()] > (dist[n->getIndex()] + costEdge))
+                {
+                    // atualiza a distância de "v" e insere na fila
+                    dist[v->getIndex()] = dist[n->getIndex()] + costEdge;
+                    pq.push(make_pair(dist[v->getIndex()], v->getInfo()));
+                }
+                e = e->getProx();
+            }
+        }
+    }
+
+    for (int i = 0; i < this->order; ++i) {
+        cout << "D(" << i << ")=" << dist[i] << "\t";
+    }
+
+    // retorna a distância mínima até o destino
+    return dist[dest->getIndex()];
+}
 
