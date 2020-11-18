@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <queue>
 #include <stack>
+#include <chrono>
 #include "Graph.h"
 
 //construtor do grafo
@@ -81,10 +82,9 @@ Node *Graph::insertNode(int info) {
         p = new Node(info);
         p->setIndex(this->order);
 
-        if(!first){
+        if (!first) {
             first = p;
-        }
-        else {
+        } else {
             while (aux) {
                 current = aux;
                 aux = aux->getProx();
@@ -261,74 +261,164 @@ void Graph::depthFirstSearch(int nodeInfo, char *outputPath) {
 int Graph::djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath) {
     int dist[this->order];
     bool visited[this->order];
-    int nodes[this->order];
 
-    Node *start = getNode(srcInfo);
-    Node *dest = getNode(destInfo);
+    if (hasNode(srcInfo) && hasNode(destInfo)) {
+        Node *start = getNode(srcInfo);
+        Node *dest = getNode(destInfo);
 
-    Node *aux = start;
+        Node *aux = start;
 
-    for (int i = 0; i < this->order; ++i) {
-        nodes[i] = 0;
-    }
+        for (int i = 0; i < this->order; ++i) {
+            visited[i] = false;
+            dist[i] = INT_MAX / 2;
+            aux = aux->getProx();
+        }
 
-    for (int i = 0; i < this->order; ++i) {
-        visited[i] = false;
-        dist[i] = INT_MAX/2;
-        nodes[aux->getIndex()] = aux->getInfo();
-        aux = aux->getProx();
-    }
+        dist[start->getIndex()] = 0;
 
-    dist[start->getIndex()] = 0;
+        priority_queue<pair<int, int>,
+                vector<pair<int, int> >, greater<pair<int, int> > > pq;
 
-    priority_queue < pair<int, int>,
-            vector<pair<int, int> >, greater<pair<int, int> > > pq;
+        // a distância de orig para orig é 0
+        dist[start->getIndex()] = 0;
 
-    // a distância de orig para orig é 0
-    dist[start->getIndex()] = 0;
+        // insere na fila
+        pq.push(make_pair(dist[start->getIndex()], start->getInfo()));
 
-    // insere na fila
-    pq.push(make_pair(dist[start->getIndex()], start->getInfo()));
+        // loop do algoritmo
+        while (!pq.empty()) {
+            pair<int, int> p = pq.top(); // extrai o pair do topo
+            int u = p.second; // obtém o vértice do pair
+            pq.pop(); // remove da fila
 
-    // loop do algoritmo
-    while(!pq.empty())
-    {
-        pair<int, int> p = pq.top(); // extrai o pair do topo
-        int u = p.second; // obtém o vértice do pair
-        pq.pop(); // remove da fila
+            Node *n = getNode(u);
 
-        Node *n = getNode(u);
+            // verifica se o vértice não foi expandido
+            if (visited[n->getIndex()] == false) {
+                // marca como visitado
+                visited[n->getIndex()] = true;
 
-        // verifica se o vértice não foi expandido
-        if(visited[n->getIndex()] == false)
-        {
-            // marca como visitado
-            visited[n->getIndex()] = true;
+                Edge *e = n->getFirstEdge();
 
-            Edge *e = n->getFirstEdge();
+                while (e) {
+                    // obtém o vértice adjacente e o custo da aresta
+                    Node *v = e->getAdjacent();
+                    int costEdge = e->getWeight();
 
-            while(e) {
-                // obtém o vértice adjacente e o custo da aresta
-                Node *v = e->getAdjacent();
-                int costEdge = e->getWeight();
-
-                // relaxamento (u, v)
-                if(dist[v->getIndex()] > (dist[n->getIndex()] + costEdge))
-                {
-                    // atualiza a distância de "v" e insere na fila
-                    dist[v->getIndex()] = dist[n->getIndex()] + costEdge;
-                    pq.push(make_pair(dist[v->getIndex()], v->getInfo()));
+                    // relaxamento (u, v)
+                    if (dist[v->getIndex()] > (dist[n->getIndex()] + costEdge)) {
+                        // atualiza a distância de "v" e insere na fila
+                        dist[v->getIndex()] = dist[n->getIndex()] + costEdge;
+                        pq.push(make_pair(dist[v->getIndex()], v->getInfo()));
+                    }
+                    e = e->getProx();
                 }
-                e = e->getProx();
             }
         }
+
+        for (int i = 0; i < this->order; ++i) {
+            cout << "D(" << i << ")=" << dist[i] << "\t";
+        }
+
+        // retorna a distância mínima até o destino
+        return dist[dest->getIndex()];
+    }
+    return 0;
+}
+
+void Graph::greedyAlgorithm() {
+    auto start = chrono::steady_clock::now();
+
+    vector<int> sol;
+    list<Node> candidates = getAllNodes();
+    candidates = sortCandidates(candidates);
+
+    while (!candidates.empty()) {
+        auto item = candidates.front();
+        sol.push_back(item.getInfo());
+        candidates = updateCandidates(item, candidates);
     }
 
-    for (int i = 0; i < this->order; ++i) {
-        cout << "D(" << i << ")=" << dist[i] << "\t";
+    cout << "Total = "<< sol.size() << endl;
+//    cout << "S = {";
+//    for (int i = 0; i < sol.size(); ++i) {
+//        cout << sol[i] << endl;
+//    }
+//    cout << "}" << endl;
+    auto end = chrono::steady_clock::now();
+
+    cout << "Tempo da execução do guloso em milisegundos: " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+    cout << "Tempo de execução do guloso em segundos: " <<chrono::duration_cast<chrono::seconds>(end - start).count() << "s" << endl;
+
+}
+
+void Graph::randomizedGluttonousAlgorithm(float alfa, int maxIterations) {
+    auto start = chrono::steady_clock::now();
+
+    vector<int> sol;
+    list<Node> candidates = getAllNodes();
+    candidates = sortCandidates(candidates);
+    int iterations = 0;
+
+    while (iterations < maxIterations) {
+        while (!candidates.empty()) {
+            auto current = getRandomElement(candidates, alfa);
+            sol.push_back(current.getInfo());
+            candidates = updateCandidates(current, candidates);
+        }
+        iterations++;
     }
 
-    // retorna a distância mínima até o destino
-    return dist[dest->getIndex()];
+    cout << "Total = "<< sol.size() << endl;
+//    for (int i = 0; i < sol.size(); ++i) {
+//        cout << sol[i] << endl;
+//    }
+//    cout << "}" << endl;
+    auto end = chrono::steady_clock::now();
+
+    cout << "Tempo da execução do randomizado em milisegundos: " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+    cout << "Tempo de execução do randomizado em segundos: " <<chrono::duration_cast<chrono::seconds>(end - start).count() << "s" << endl;
+}
+
+list<Node> Graph::getAllNodes() {
+    list<Node> all;
+    Node *p = first;
+    while (p) {
+        all.push_back(*p);
+        p = p->getProx();
+    }
+
+    return all;
+}
+
+list<Node> Graph::sortCandidates(list<Node> candidates) {
+    candidates.sort();
+    return candidates;
+}
+
+list<Node> Graph::updateCandidates(Node current, list<Node> candidates) {
+
+    auto adjacents = current.getAllAdjacents();
+
+    for (int i = 0; i < adjacents.size(); ++i) {
+        candidates.remove_if([&](Node node){
+            if(current.getInfo() == node.getInfo()
+            || node.getInfo() == adjacents[i]){
+                return true;
+            }
+            return false;
+        });
+    }
+
+
+    return sortCandidates(candidates);
+}
+
+Node Graph::getRandomElement(list<Node> candidates, float alfa) {
+    int maxPosition = alfa * (candidates.size());
+    int position = (rand() % (maxPosition + 1 - 0)) + 0;
+    auto it = candidates.begin();
+    advance(it, position);
+    return it.operator*();
 }
 

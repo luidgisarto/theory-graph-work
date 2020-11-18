@@ -4,6 +4,7 @@
 #include "Node.h"
 #include "Edge.h"
 #include <stdio.h>
+#include <list>
 
 using namespace std;
 
@@ -29,10 +30,12 @@ public:
     void breadthFirstSearch(int nodeInfo, char *outputPath);
     void depthFirstSearch(int nodeInfo, char *outputPath);
     int djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath);
-
-    bool hasVisited(bool *visited);
-
-    int minDistance(int *dist, bool *visited);
+    void greedyAlgorithm();
+    list<Node> getAllNodes();
+    list <Node> sortCandidates(list<Node> candidates);
+    list<Node> updateCandidates(Node current, list<Node> candidates);
+    void randomizedGluttonousAlgorithm(float alfa, int maxIterations);
+    Node getRandomElement(list<Node> candidates, float alfa);
 };
 
 

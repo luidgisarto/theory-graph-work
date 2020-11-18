@@ -35,7 +35,13 @@ int main(int argc, char **argv) {
     fileManager->writeFile();
 
 
-    graph->djisktraAlgorithm(1, 6, outputFileName);
+    //cout << "Resultado: " << graph->floydAlgorithm(1, 5, outputFileName);
+
+    graph->greedyAlgorithm();
+
+    for (int i = 0; i < 10; ++i) {
+        graph->randomizedGluttonousAlgorithm(0.1, 500);
+    }
 
     return 0;
 }

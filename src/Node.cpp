@@ -1,6 +1,10 @@
 #include <stdio.h>
+#include <list>
+#include <vector>
 #include "Node.h"
 #include "Edge.h"
+
+using  namespace std;
 
 /*
  * @function construtor
@@ -99,4 +103,25 @@ void Node::setIndex(int index) {
 /* @fuction retorna o indíce de inserção do nó*/
 int Node::getIndex() {
     return this->index;
+}
+
+int Node::getWeight(int nodeInfo) {
+    Edge *edge = edges;
+    while (edge) {
+        if(edge->getAdjacent()->getInfo() == nodeInfo) {
+            return edge->getWeight();
+        }
+    }
+    return 0;
+}
+
+vector<int> Node::getAllAdjacents() {
+    vector<int> nodes;
+    Edge *a = edges;
+    while (a) {
+        nodes.push_back(a->getAdjacent()->getInfo());
+        a = a->getProx();
+    }
+
+    return nodes;
 }
