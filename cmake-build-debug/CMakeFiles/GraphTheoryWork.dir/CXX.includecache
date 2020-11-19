@@ -6,24 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/main.cpp
-iostream
--
-string
--
-fstream
--
-chrono
--
-iomanip
--
-src/Graph.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
-src/managers/FileManager.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.h
-src/managers/MenuManager.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/MenuManager.h
-
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
 
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.cpp
@@ -39,6 +21,10 @@ stack
 -
 chrono
 -
+random
+-
+math.h
+-
 Graph.h
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
 
@@ -52,39 +38,9 @@ stdio.h
 list
 -
 
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.cpp
-stdio.h
--
-list
--
-vector
--
-Node.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
-Edge.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
-
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
 list
 -
 vector
 -
-
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.cpp
-fstream
--
-iostream
--
-chrono
--
-iomanip
--
-FileManager.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.h
-
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.h
-../Graph.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
-
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/MenuManager.h
 

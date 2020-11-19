@@ -15,6 +15,8 @@ public:
     void writeFile();
 
     void createHeader(ofstream file);
+
+    void readFileMatrix();
 };
 
 

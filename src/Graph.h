@@ -34,7 +34,7 @@ public:
     list<Node> getAllNodes();
     list <Node> sortCandidates(list<Node> candidates);
     list<Node> updateCandidates(Node current, list<Node> candidates);
-    void randomizedGluttonousAlgorithm(float alfa, int maxIterations);
+    vector<int> randomizedGluttonousAlgorithm(float alfa, int maxIterations);
     Node getRandomElement(list<Node> candidates, float alfa);
 };
 

@@ -47,6 +47,43 @@ void FileManager::readFile() {
     //cout << "leitura de arquivo finalizada" << endl;
 }
 
+void FileManager::readFileMatrix() {
+    fstream file;
+    file.open(this->inputFileName);
+    //cout << "Lendo arquivo" << endl;
+    if(!file.is_open()) {
+        //cout << "Erro ao abrir o arquivo " << endl;
+        throw invalid_argument("Erro ao abrir arquivo para leitura.");
+    }
+
+    int total = 0;
+    string ignoreLine = "";
+    int value = -1;
+
+    file >> ignoreLine;
+    file >> total;
+
+    //atribui no grafo o total de nós lido do arquivo
+    graph->setTotalNodes(total);
+    //cout << total <<endl;
+
+    while (ignoreLine != "*****************CONNECTIONS****************") {
+        file >> ignoreLine;
+    }
+
+    for (int i = 0; i < total; ++i) {
+        for (int j = 0; j < total; ++j, file >> value) {
+            if(value == 1 && i != j) {
+                graph->insertEdge(i, j, 0);
+            }
+        }
+    }
+
+    file.close();
+
+    //cout << "leitura de arquivo finalizada" << endl;
+}
+
 /*
  * @function realiza a escrita do arquivo  no formato esperado*/
 void FileManager::writeFile() {

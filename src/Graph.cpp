@@ -4,6 +4,8 @@
 #include <queue>
 #include <stack>
 #include <chrono>
+#include <random>
+#include <math.h>
 #include "Graph.h"
 
 //construtor do grafo
@@ -340,22 +342,15 @@ void Graph::greedyAlgorithm() {
     }
 
     cout << "Total = "<< sol.size() << endl;
-//    cout << "S = {";
-//    for (int i = 0; i < sol.size(); ++i) {
-//        cout << sol[i] << endl;
-//    }
-//    cout << "}" << endl;
     auto end = chrono::steady_clock::now();
 
-    cout << "Tempo da execução do guloso em milisegundos: " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
-    cout << "Tempo de execução do guloso em segundos: " <<chrono::duration_cast<chrono::seconds>(end - start).count() << "s" << endl;
+    cout << "Guloso " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+    cout << "Guloso : " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() / 1000.00 << "s" << endl;
 
 }
 
-void Graph::randomizedGluttonousAlgorithm(float alfa, int maxIterations) {
-    auto start = chrono::steady_clock::now();
-
-    vector<int> sol;
+vector<int> Graph::randomizedGluttonousAlgorithm(float alfa, int maxIterations) {
+    vector<int> solution;
     list<Node> candidates = getAllNodes();
     candidates = sortCandidates(candidates);
     int iterations = 0;
@@ -363,21 +358,12 @@ void Graph::randomizedGluttonousAlgorithm(float alfa, int maxIterations) {
     while (iterations < maxIterations) {
         while (!candidates.empty()) {
             auto current = getRandomElement(candidates, alfa);
-            sol.push_back(current.getInfo());
+            solution.push_back(current.getInfo());
             candidates = updateCandidates(current, candidates);
         }
         iterations++;
     }
-
-    cout << "Total = "<< sol.size() << endl;
-//    for (int i = 0; i < sol.size(); ++i) {
-//        cout << sol[i] << endl;
-//    }
-//    cout << "}" << endl;
-    auto end = chrono::steady_clock::now();
-
-    cout << "Tempo da execução do randomizado em milisegundos: " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
-    cout << "Tempo de execução do randomizado em segundos: " <<chrono::duration_cast<chrono::seconds>(end - start).count() << "s" << endl;
+    return solution;
 }
 
 list<Node> Graph::getAllNodes() {
@@ -397,7 +383,6 @@ list<Node> Graph::sortCandidates(list<Node> candidates) {
 }
 
 list<Node> Graph::updateCandidates(Node current, list<Node> candidates) {
-
     auto adjacents = current.getAllAdjacents();
 
     for (int i = 0; i < adjacents.size(); ++i) {
@@ -409,16 +394,13 @@ list<Node> Graph::updateCandidates(Node current, list<Node> candidates) {
             return false;
         });
     }
-
-
     return sortCandidates(candidates);
 }
 
 Node Graph::getRandomElement(list<Node> candidates, float alfa) {
-    int maxPosition = alfa * (candidates.size());
+    int maxPosition = alfa * (candidates.size() - 1);
     int position = (rand() % (maxPosition + 1 - 0)) + 0;
     auto it = candidates.begin();
     advance(it, position);
     return it.operator*();
 }
-
