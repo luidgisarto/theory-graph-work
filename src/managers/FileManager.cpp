@@ -2,6 +2,7 @@
 #include <iostream>
 #include <chrono>
 #include <iomanip>
+#include <queue>
 #include "FileManager.h"
 
 
@@ -9,6 +10,10 @@ FileManager::FileManager(char *inputFileName, char *outputFileName, Graph *graph
     this->inputFileName = inputFileName;
     this->outputFileName = outputFileName;
     this->graph = graph;
+}
+
+FileManager::FileManager(char *outputFileName) {
+    this->outputFileName = outputFileName;
 }
 
 /*
@@ -58,6 +63,7 @@ void FileManager::readFileMatrix() {
 
     int total = 0;
     string ignoreLine = "";
+    string line = "";
     int value = -1;
 
     file >> ignoreLine;
@@ -67,21 +73,38 @@ void FileManager::readFileMatrix() {
     graph->setTotalNodes(total);
     //cout << total <<endl;
 
+//    queue<int> edges;
+//    int edge = -1;
+//    while (ignoreLine != "******************WEIGHTS*****************************") {
+//        file >> ignoreLine;
+//    }
+
     while (ignoreLine != "*****************CONNECTIONS****************") {
+//        file >> line;
+//        try {
+//            auto edge = stoi(line);
+//            edges.push(edge);
+//        }
+//        catch (...) {
+//            break;
+//        }
         file >> ignoreLine;
     }
 
     for (int i = 0; i < total; ++i) {
         for (int j = 0; j < total; ++j, file >> value) {
             if(value == 1 && i != j) {
+                int weight = 0;
+//                if(edges.size() > 0) {
+//                    weight = edges.front();
+//                    edges.pop();
+//                }
                 graph->insertEdge(i, j, 0);
             }
         }
     }
 
     file.close();
-
-    //cout << "leitura de arquivo finalizada" << endl;
 }
 
 /*
@@ -89,7 +112,7 @@ void FileManager::readFileMatrix() {
 void FileManager::writeFile() {
     ofstream file;
 
-    file.open(this->outputFileName);
+    file.open(this->outputFileName, ofstream::ios_base::app);
 
     if(!file.is_open()) {
         throw invalid_argument("Erro ao abrir arquivo para escrita.");
@@ -115,5 +138,17 @@ void FileManager::writeFile() {
     }
 
     file.close();
+}
+
+void FileManager::writeFile(string line) {
+    ofstream file;
+
+    file.open(this->outputFileName);
+
+    if(!file.is_open()) {
+        throw invalid_argument("Erro ao abrir arquivo para escrita.");
+    }
+
+    file << line << endl;
 }
 

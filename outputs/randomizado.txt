@@ -1,0 +1,218 @@
+
+-----Execução do Algoritmo Randomizado--
+
+----Alfa: 0.1------
+iteração: 0
+$ = 16
+Tempo: 1ms 0.001s
+
+iteração: 1
+$ = 13
+Tempo: 0ms 0s
+
+iteração: 2
+$ = 13
+Tempo: 1ms 0.001s
+
+iteração: 3
+$ = 13
+Tempo: 0ms 0s
+
+iteração: 4
+$ = 15
+Tempo: 1ms 0.001s
+
+iteração: 5
+$ = 14
+Tempo: 0ms 0s
+
+iteração: 6
+$ = 13
+Tempo: 0ms 0s
+
+iteração: 7
+$ = 15
+Tempo: 0ms 0s
+
+iteração: 8
+$ = 14
+Tempo: 0ms 0s
+
+iteração: 9
+$ = 15
+Tempo: 1ms 0.001s
+
+Média = 14
+
+----Alfa: 0.2------
+iteração: 0
+$ = 13
+Tempo: 1ms 0.001s
+
+iteração: 1
+$ = 13
+Tempo: 0ms 0s
+
+iteração: 2
+$ = 13
+Tempo: 1ms 0.001s
+
+iteração: 3
+$ = 15
+Tempo: 1ms 0.001s
+
+iteração: 4
+$ = 13
+Tempo: 0ms 0s
+
+iteração: 5
+$ = 13
+Tempo: 1ms 0.001s
+
+iteração: 6
+$ = 13
+Tempo: 0ms 0s
+
+iteração: 7
+$ = 13
+Tempo: 0ms 0s
+
+iteração: 8
+$ = 14
+Tempo: 1ms 0.001s
+
+iteração: 9
+$ = 14
+Tempo: 0ms 0s
+
+Média = 13
+
+----Alfa: 0.3------
+iteração: 0
+$ = 12
+Tempo: 1ms 0.001s
+
+iteração: 1
+$ = 15
+Tempo: 0ms 0s
+
+iteração: 2
+$ = 16
+Tempo: 0ms 0s
+
+iteração: 3
+$ = 13
+Tempo: 1ms 0.001s
+
+iteração: 4
+$ = 14
+Tempo: 1ms 0.001s
+
+iteração: 5
+$ = 12
+Tempo: 0ms 0s
+
+iteração: 6
+$ = 16
+Tempo: 1ms 0.001s
+
+iteração: 7
+$ = 15
+Tempo: 1ms 0.001s
+
+iteração: 8
+$ = 15
+Tempo: 0ms 0s
+
+iteração: 9
+$ = 15
+Tempo: 0ms 0s
+
+Média = 13
+
+----Alfa: 0.5------
+iteração: 0
+$ = 15
+Tempo: 1ms 0.001s
+
+iteração: 1
+$ = 13
+Tempo: 1ms 0.001s
+
+iteração: 2
+$ = 13
+Tempo: 0ms 0s
+
+iteração: 3
+$ = 14
+Tempo: 0ms 0s
+
+iteração: 4
+$ = 15
+Tempo: 0ms 0s
+
+iteração: 5
+$ = 14
+Tempo: 1ms 0.001s
+
+iteração: 6
+$ = 15
+Tempo: 0ms 0s
+
+iteração: 7
+$ = 17
+Tempo: 1ms 0.001s
+
+iteração: 8
+$ = 15
+Tempo: 1ms 0.001s
+
+iteração: 9
+$ = 13
+Tempo: 0ms 0s
+
+Média = 14
+
+----Alfa: 0.7------
+iteração: 0
+$ = 14
+Tempo: 1ms 0.001s
+
+iteração: 1
+$ = 16
+Tempo: 1ms 0.001s
+
+iteração: 2
+$ = 13
+Tempo: 0ms 0s
+
+iteração: 3
+$ = 16
+Tempo: 0ms 0s
+
+iteração: 4
+$ = 15
+Tempo: 0ms 0s
+
+iteração: 5
+$ = 15
+Tempo: 0ms 0s
+
+iteração: 6
+$ = 15
+Tempo: 1ms 0.001s
+
+iteração: 7
+$ = 17
+Tempo: 0ms 0s
+
+iteração: 8
+$ = 16
+Tempo: 1ms 0.001s
+
+iteração: 9
+$ = 16
+Tempo: 1ms 0.001s
+
+Média = 14
+

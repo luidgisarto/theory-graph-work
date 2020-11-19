@@ -6,7 +6,7 @@ using namespace std;
 
 MenuManager::MenuManager() {}
 
-MenuManager::~MenuManager(){}
+MenuManager::~MenuManager() {}
 
 int MenuManager::createMenu() {
     int option = -1;
@@ -34,11 +34,10 @@ void MenuManager::createHeader() {
 void MenuManager::createOptions() {
     cout << "" << endl;
     cout << "1 - Caminhamento em largura" << endl;
-    cout << "2 - Caminhamento em profundidade"<< endl;
+    cout << "2 - Caminhamento em profundidade" << endl;
     cout << "3 - Algoritmo de Djikstra (caminho mínimo)" << endl;
-    cout << "4 - Algoritmo de Floyd (caminho mínimo)" << endl;
-    cout << "5 - Algoritmo de Prim (árvore geradora)" << endl;
-    cout << "6 - Algoritmo de Kruskal (árvore geradora mínima)" << endl;
-    cout << "9 - Sair" << endl;
-    cout << "" <<endl;
+    cout << "4 - Algoritmo Guloso" << endl;
+    cout << "5 - Algoritmo Guloso Randomizado" << endl;
+    cout << "6 - Sair" << endl;
+    cout << "" << endl;
 }

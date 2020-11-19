@@ -9,21 +9,77 @@
 
 using namespace std;
 
-float calculateMedia(vector<int> solutions) {
-    int total = 0;
-    for (int i = 0; i < solutions.size(); ++i) {
-        total += solutions[i];
+void executeOperation(int option, Graph *graph) {
+    switch (option) {
+        case 1: {
+            int node = -1;
+            cout << "Informe o nó de início:" << endl;
+            cin >> node;
+
+            auto outputPath = "..\\outputs\\largura.txt";
+            char *path = const_cast<char *>(outputPath);
+            graph->breadthFirstSearch(node, path);
+            break;
+        }
+        case 2: {
+            int node = -1;
+            cout << "Informe o nó de início:" << endl;
+            cin >> node;
+
+            auto outputPath = "..\\outputs\\profundidade.txt";
+            char *path = const_cast<char *>(outputPath);
+            graph->depthFirstSearch(node, path);
+            break;
+        }
+        case 3: {
+            int start = -1;
+            int end = -1;
+            cout << "Informe o nó de início:" << endl;
+            cin >> start;
+
+            cout << "Informe o nó de fim:" << endl;
+            cin >> end;
+
+            auto outputPath = "..\\outputs\\djisktra.txt";
+            char *path = const_cast<char *>(outputPath);
+            graph->djisktraAlgorithm(start, end, path);
+            break;
+        }
+        case 4: {
+            auto outputPath = "..\\outputs\\guloso.txt";
+            char *path = const_cast<char *>(outputPath);
+            graph->greedyAlgorithm(path);
+            break;
+        }
+        case 5: {
+            int iterations = 10;
+            auto outputPath = "..\\outputs\\randomizado.txt";
+            char *path = const_cast<char *>(outputPath);
+            graph->executeMinimalDominantSubset(iterations, path);
+            break;
+        }
     }
-    return total/solutions.size();
+}
+
+void prepareMenu(int option, Graph *graph) {
+    auto menuManager = new MenuManager();
+    while (option == -1) {
+        option = menuManager->createMenu();
+    }
+    if(option == 6) {
+        exit(EXIT_SUCCESS);
+    }
+    else {
+        executeOperation(option, graph);
+        prepareMenu(-1, graph);
+    }
 }
 
 int main(int argc, char **argv) {
-    auto start = chrono::high_resolution_clock::now();
-
     char *inputFileName;
     char *outputFileName;
 
-    if(argc != 3) {
+    if (argc != 3) {
         throw invalid_argument("Parâmetros inválidos");
     }
 
@@ -34,27 +90,30 @@ int main(int argc, char **argv) {
 
     auto fileManager = new FileManager(inputFileName, outputFileName, graph);
 
-    fileManager->readFileMatrix();
+    int readType = -1;
 
-    auto end = chrono::high_resolution_clock::now();
-    fileManager->writeFile();
+    while (readType == -1) {
+        cout << "Selecione o tipo de leitura de arquivo: " << endl;
+        cout << "1 - Padrão" << endl;
+        cout << "2 - Matriz de Adjacência" << endl;
 
-    graph->greedyAlgorithm();
+        cin >> readType;
+    }
 
-    float alfas[5] = {0.1, 0.2, 0.3, 0.5, 0.7 };
-    vector<int> s;
-    for (int i = 0; i < 5; ++i) {
-        for (int j = 0; j < 10; ++j) {
-            auto alfa = alfas[i];
-            auto start = chrono::high_resolution_clock::now();
-            auto solution = graph->randomizedGluttonousAlgorithm(alfa, 500);
-            auto end = chrono::high_resolution_clock::now();
-            auto duration = end - start;
-            auto time = chrono::duration_cast<chrono::milliseconds>(duration).count();
-            cout << "iteração: " << j << " alfa: " << alfa <<  " = "<< solution.size() << " " << time << "ms " << time/1000.00 << "s" << endl;
-            s.push_back(solution.size());
-        }
-        cout << "Média = " << calculateMedia(s) << endl;
+    if (readType == 1) {
+        fileManager->readFile();
+        fileManager->writeFile();
+    } else if (readType == 2) {
+        fileManager->readFileMatrix();
+        fileManager->writeFile();
+    }
+
+    if(readType > 2) {
+        exit(EXIT_SUCCESS);
+    }
+    else {
+        int option = -1;
+        prepareMenu(option, graph);
     }
 
     return 0;

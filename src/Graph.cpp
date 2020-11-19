@@ -6,7 +6,9 @@
 #include <chrono>
 #include <random>
 #include <math.h>
+#include <fstream>
 #include "Graph.h"
+#include "managers/FileManager.h"
 
 //construtor do grafo
 Graph::Graph() {
@@ -175,10 +177,16 @@ float Graph::getRelativeFrequency(int degree) {
 }
 
 void Graph::breadthFirstSearch(int nodeInfo, char *outputPath) {
+
+    ofstream file;
+    file.open(outputPath, ofstream::ios_base::app);
+    file << endl << "-----Execução da busca em Largura-----" << endl << endl;
+
     Node *p = getNode(nodeInfo);
     queue<int> queue;
 
     if (!p) {
+        file << "Não foi encontrado nenhum nó: " << nodeInfo;
         return;
     }
 
@@ -190,7 +198,8 @@ void Graph::breadthFirstSearch(int nodeInfo, char *outputPath) {
 
     queue.push(p->getInfo());
     visited[p->getIndex()] = true;
-    cout << p->getInfo() << endl;
+    //cout << p->getInfo() << endl;
+    file << p->getInfo() << endl;
     Node *adj;
     Edge *aux;
     while (!queue.empty()) {
@@ -202,7 +211,8 @@ void Graph::breadthFirstSearch(int nodeInfo, char *outputPath) {
             if (!visited[index]) {
                 visited[index] = true;
                 queue.push(adj->getInfo());
-                cout << adj->getInfo() << endl;
+                //cout << adj->getInfo() << endl;
+                file << adj->getInfo() << endl;
             } else {
                 aux = aux->getProx();
             }
@@ -214,13 +224,20 @@ void Graph::breadthFirstSearch(int nodeInfo, char *outputPath) {
         }
     }
 
+    file.close();
+
 }
 
 void Graph::depthFirstSearch(int nodeInfo, char *outputPath) {
+    ofstream file;
     Node *p = getNode(nodeInfo);
     stack<int> stack;
 
+    file.open(outputPath, ofstream::ios_base::app);
+    file << endl << "-------Execução da Busca em profundidade--------" <<endl << endl;
+
     if (!p) {
+        file << "Não foi encontrado nenhum nó: " << nodeInfo;
         return;
     }
 
@@ -232,7 +249,8 @@ void Graph::depthFirstSearch(int nodeInfo, char *outputPath) {
 
     stack.push(p->getInfo());
     visited[p->getIndex()] = true;
-    cout << p->getInfo() << endl;
+    //cout << p->getInfo() << endl;
+    file << p->getInfo() << endl;
 
     Edge *edge;
 
@@ -245,7 +263,8 @@ void Graph::depthFirstSearch(int nodeInfo, char *outputPath) {
             if (!visited[index]) {
                 visited[index] = true;
                 stack.push(adj->getInfo());
-                cout << adj->getInfo() << endl;
+                file << adj->getInfo() << endl;
+                //cout << adj->getInfo() << endl;
                 p = getNode(stack.top());
                 edge = p->getFirstEdge();
             } else {
@@ -258,9 +277,17 @@ void Graph::depthFirstSearch(int nodeInfo, char *outputPath) {
             p = getNode(stack.top());
         }
     }
+
+    file.close();
 }
 
 int Graph::djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath) {
+    ofstream file;
+
+    file.open(outputPath, ofstream::ios_base::app);
+
+    file << endl << "-------Execução do algoritmo de Djikstra-----" << endl << endl;
+
     int dist[this->order];
     bool visited[this->order];
 
@@ -268,12 +295,9 @@ int Graph::djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath) {
         Node *start = getNode(srcInfo);
         Node *dest = getNode(destInfo);
 
-        Node *aux = start;
-
         for (int i = 0; i < this->order; ++i) {
             visited[i] = false;
             dist[i] = INT_MAX / 2;
-            aux = aux->getProx();
         }
 
         dist[start->getIndex()] = 0;
@@ -319,16 +343,28 @@ int Graph::djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath) {
         }
 
         for (int i = 0; i < this->order; ++i) {
-            cout << "D(" << i << ")=" << dist[i] << "\t";
+            file << "D(" << i << ")= " << dist[i] << endl;
         }
 
         // retorna a distância mínima até o destino
+        file << "D(" << srcInfo << "," << destInfo << ") = " << dist[dest->getIndex()] << endl;
         return dist[dest->getIndex()];
     }
+
+    file << "Não foi encontrado o nó de partida ou nó de saíde" << endl;
+
+    file.close();
+
     return 0;
 }
 
-void Graph::greedyAlgorithm() {
+void Graph::greedyAlgorithm(char *outputPath) {
+    ofstream file;
+
+    file.open(outputPath, ofstream::ios_base::app);
+
+    file << endl << "------Execução do algoritmo guloso-------" << endl;
+
     auto start = chrono::steady_clock::now();
 
     vector<int> sol;
@@ -340,13 +376,52 @@ void Graph::greedyAlgorithm() {
         sol.push_back(item.getInfo());
         candidates = updateCandidates(item, candidates);
     }
-
-    cout << "Total = "<< sol.size() << endl;
     auto end = chrono::steady_clock::now();
+    file << "S = "<< sol.size() << endl;
+    file << "Tempo em milisegundos: " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
+    file << "Tempo em segundos: " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() / 1000.00 << "s" << endl;
 
-    cout << "Guloso " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
-    cout << "Guloso : " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() / 1000.00 << "s" << endl;
+    file.close();
+}
 
+void Graph::executeMinimalDominantSubset(int iterationsAlpha, char *outputPath) {
+    ofstream  file;
+
+    file.open(outputPath, ofstream::ios_base::app);
+
+    file << endl << "-----Execução do Algoritmo Randomizado--" << endl << endl;
+
+    vector<double> alphas = {0.1, 0.2, 0.3, 0.5, 0.7 };
+    vector<int> s;
+    for (int i = 0; i < alphas.size(); ++i) {
+        auto alfa = alphas[i];
+
+        file << "----Alfa: " << alfa << "------" << endl;
+
+        for (int j = 0; j < iterationsAlpha; ++j) {
+            auto start = chrono::high_resolution_clock::now();
+            auto solution = randomizedGluttonousAlgorithm(alfa, 500);
+            auto end = chrono::high_resolution_clock::now();
+            auto duration = end - start;
+            auto time = chrono::duration_cast<chrono::milliseconds>(duration).count();
+            file << "iteração: " << j << endl;
+            file <<  "$ = "<< solution.size() << endl;
+            file << "Tempo: "<< time << "ms " << time/1000.00 << "s" << endl;
+            file << endl;
+            s.push_back(solution.size());
+        }
+        file << "Média = " << calculateMedia(s) << endl << endl;
+    }
+
+    file.close();
+}
+
+double Graph::calculateMedia(vector<int> values) {
+    int total = 0;
+    for (int i = 0; i < values.size(); ++i) {
+        total += values[i];
+    }
+    return total / values.size();
 }
 
 vector<int> Graph::randomizedGluttonousAlgorithm(float alfa, int maxIterations) {

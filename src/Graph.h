@@ -30,12 +30,15 @@ public:
     void breadthFirstSearch(int nodeInfo, char *outputPath);
     void depthFirstSearch(int nodeInfo, char *outputPath);
     int djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath);
-    void greedyAlgorithm();
+    void greedyAlgorithm(char *outputFile);
     list<Node> getAllNodes();
     list <Node> sortCandidates(list<Node> candidates);
     list<Node> updateCandidates(Node current, list<Node> candidates);
     vector<int> randomizedGluttonousAlgorithm(float alfa, int maxIterations);
     Node getRandomElement(list<Node> candidates, float alfa);
+    void executeMinimalDominantSubset(int iterationsAlpha, char *outputPath);
+
+    double calculateMedia(vector<int> solutions);
 };
 
 
