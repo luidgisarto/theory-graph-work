@@ -11,20 +11,18 @@ iostream
 -
 string
 -
-fstream
--
-chrono
--
-iomanip
--
 src/Graph.h
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
-src/managers/FileManager.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.h
-src/managers/MenuManager.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/MenuManager.h
+src/FileManager.h
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/FileManager.h
+src/MenuManager.h
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/MenuManager.h
 
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
+
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/FileManager.h
+Graph.h
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
 
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
 Node.h
@@ -36,15 +34,11 @@ stdio.h
 list
 -
 
+C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/MenuManager.h
+
 C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
 list
 -
 vector
 -
-
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.h
-../Graph.h
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
-
-C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/MenuManager.h
 

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <list>
 #include <vector>
+#include <limits.h>
 #include "Node.h"
 #include "Edge.h"
 
@@ -125,3 +126,35 @@ vector<int> Node::getAllAdjacents() {
 
     return nodes;
 }
+
+Node *Node::getMinAdj() {
+    Edge *edge = edges;
+    int min = INT_MAX / 2;
+    Edge *minEdge = nullptr;
+    while (edge) {
+        if(edge->getWeight() < min) {
+            min = edge->getWeight();
+            minEdge = edge;
+        }
+        edge = edge->getProx();
+    }
+    return minEdge->getAdjacent();
+}
+
+Edge * Node::getLowerEdge() {
+    Edge *aux = edges;
+    Edge *lowerEdge = nullptr;
+    int minEdge = 0;
+    minEdge = aux->getWeight();
+
+    while (aux) {
+        if(aux->getWeight() < minEdge) {
+            minEdge = aux->getWeight();
+            lowerEdge = aux;
+        }
+        aux = aux->getProx();
+    }
+
+    return lowerEdge;
+}
+

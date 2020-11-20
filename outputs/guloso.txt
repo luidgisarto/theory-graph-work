@@ -1,0 +1,6 @@
+
+------Execução do algoritmo guloso-------
+Instância: ..\\inputs\\dominant-set.txt
+S = 2
+Tempo(ms): 0ms
+Tempo(s): 0s

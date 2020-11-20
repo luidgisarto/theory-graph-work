@@ -3,11 +3,297 @@
 -------------- Luidgi Sarto Lacerda -----------------
 -------------- Sistemas de Informação ---------------
 -------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
 
-Vértices: 50
-Arestas: 142
-Grau Médio: 5.68
-f(4): 0.06
-f(5): 0.3
-f(6): 0.54
-f(7): 0.1
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667
+
+-------------- Trabalho de Grafos -------------------
+-------------- Luidgi Sarto Lacerda -----------------
+-------------- Sistemas de Informação ---------------
+-------------- 201176023 ----------------------------
+Instância: ..\\inputs\\dominant-set.txt
+
+Vértices: 6
+Arestas: 6
+Grau Médio: 2
+f(1): 0.166667
+f(2): 0.666667
+f(3): 0.166667

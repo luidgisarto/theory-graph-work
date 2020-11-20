@@ -1,11 +1,8 @@
 #include <iostream>
 #include <string>
-#include <fstream>
-#include <chrono>
-#include <iomanip>
 #include "src/Graph.h"
-#include "src/managers/FileManager.h"
-#include "src/managers/MenuManager.h"
+#include "src/FileManager.h"
+#include "src/MenuManager.h"
 
 using namespace std;
 
@@ -46,17 +43,36 @@ void executeOperation(int option, Graph *graph) {
             break;
         }
         case 4: {
+//            auto outputPath = "..\\outputs\\prim.txt";
+//            char *path = const_cast<char *>(outputPath);
+//            graph->primAlgorithm(path);
+            cout << "Não foi possível obter resultado devido a problemas de implementação" << endl;
+            break;
+        }
+        case 5: {
+            auto outputPath = "..\\outputs\\kruskal.txt";
+            char *path = const_cast<char *>(outputPath);
+            graph->kruskalAlgorithm(path);
+            break;
+        }
+        case 6: {
             auto outputPath = "..\\outputs\\guloso.txt";
             char *path = const_cast<char *>(outputPath);
             graph->greedyAlgorithm(path);
             break;
         }
-        case 5: {
+        case 7: {
             int iterations = 10;
             auto outputPath = "..\\outputs\\randomizado.txt";
             char *path = const_cast<char *>(outputPath);
             graph->executeMinimalDominantSubset(iterations, path);
             break;
+        }
+        case 8:{
+            exit(EXIT_SUCCESS);
+        }
+        default:{
+            exit(EXIT_SUCCESS);
         }
     }
 }
@@ -66,13 +82,9 @@ void prepareMenu(int option, Graph *graph) {
     while (option == -1) {
         option = menuManager->createMenu();
     }
-    if(option == 6) {
-        exit(EXIT_SUCCESS);
-    }
-    else {
-        executeOperation(option, graph);
-        prepareMenu(-1, graph);
-    }
+
+    executeOperation(option, graph);
+    prepareMenu(-1, graph);
 }
 
 int main(int argc, char **argv) {
@@ -83,13 +95,13 @@ int main(int argc, char **argv) {
         throw invalid_argument("Parâmetros inválidos");
     }
 
+    vector<string> instances = {"Problem.dat_50_50_0", "Problem.dat_50_100_0", "Problem.dat_50_500_0",
+                                "Problem.dat_100_2000_0"};
+
     auto graph = new Graph();
 
     inputFileName = argv[1];
     outputFileName = argv[2];
-
-    auto fileManager = new FileManager(inputFileName, outputFileName, graph);
-
     int readType = -1;
 
     while (readType == -1) {
@@ -100,6 +112,8 @@ int main(int argc, char **argv) {
         cin >> readType;
     }
 
+    auto fileManager = new FileManager(inputFileName, outputFileName, graph);
+
     if (readType == 1) {
         fileManager->readFile();
         fileManager->writeFile();
@@ -108,13 +122,13 @@ int main(int argc, char **argv) {
         fileManager->writeFile();
     }
 
-    if(readType > 2) {
+    if (readType > 2) {
         exit(EXIT_SUCCESS);
-    }
-    else {
+    } else {
         int option = -1;
         prepareMenu(option, graph);
     }
+
 
     return 0;
 }

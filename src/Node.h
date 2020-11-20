@@ -43,6 +43,10 @@ public:
             return false;
     }
 
+    Node *getMinAdj();
+
+    Edge * getLowerEdge();
+
 private:
     int info; // identificador do nó
     int index; //indice de inserção do nó

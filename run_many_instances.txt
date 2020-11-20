@@ -1,0 +1,21 @@
+
+    for (int i = 0; i < instances.size(); ++i) {
+        string  instanceName = "";
+        string guloso = "..\\outputs\\guloso.txt";
+        string randomizado = "..\\outputs\\randomizado.txt";
+        instanceName = "..\\inputs\\instances\\" + instances[i];
+        char *path = const_cast<char *>(instanceName.c_str());
+        auto fileManager = new FileManager(path, outputFileName, graph);
+        fileManager->readFileMatrix();
+        fileManager->writeFile();
+
+        cout << instanceName << endl;
+
+        char *path1 = const_cast<char *>(randomizado.c_str());
+        char *path2 = const_cast<char *>(guloso.c_str());
+//        graph->executeMinimalDominantSubset(10, path1);
+
+        for (int j = 0; j < 100; ++j) {
+            graph->greedyAlgorithm(path2);
+        }
+    }

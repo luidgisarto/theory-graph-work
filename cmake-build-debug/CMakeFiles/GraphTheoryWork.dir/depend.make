@@ -3,28 +3,29 @@
 
 CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/Edge.h
+CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/FileManager.h
 CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/Graph.h
+CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/MenuManager.h
 CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/Node.h
-CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/managers/FileManager.h
-CMakeFiles/GraphTheoryWork.dir/main.cpp.obj: ../src/managers/MenuManager.h
 
 CMakeFiles/GraphTheoryWork.dir/src/Edge.cpp.obj: ../src/Edge.cpp
 CMakeFiles/GraphTheoryWork.dir/src/Edge.cpp.obj: ../src/Edge.h
+
+CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj: ../src/Edge.h
+CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj: ../src/FileManager.cpp
+CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj: ../src/FileManager.h
+CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj: ../src/Graph.h
+CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj: ../src/Node.h
 
 CMakeFiles/GraphTheoryWork.dir/src/Graph.cpp.obj: ../src/Edge.h
 CMakeFiles/GraphTheoryWork.dir/src/Graph.cpp.obj: ../src/Graph.cpp
 CMakeFiles/GraphTheoryWork.dir/src/Graph.cpp.obj: ../src/Graph.h
 CMakeFiles/GraphTheoryWork.dir/src/Graph.cpp.obj: ../src/Node.h
-CMakeFiles/GraphTheoryWork.dir/src/Graph.cpp.obj: ../src/managers/FileManager.h
+
+CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.obj: ../src/MenuManager.cpp
+CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.obj: ../src/MenuManager.h
 
 CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.obj: ../src/Edge.h
 CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.obj: ../src/Node.cpp
 CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.obj: ../src/Node.h
-
-CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj: ../src/Edge.h
-CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj: ../src/Graph.h
-CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj: ../src/Node.h
-CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj: ../src/managers/FileManager.cpp
-CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj: ../src/managers/FileManager.h
-
 

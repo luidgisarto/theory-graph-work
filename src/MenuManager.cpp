@@ -36,8 +36,10 @@ void MenuManager::createOptions() {
     cout << "1 - Caminhamento em largura" << endl;
     cout << "2 - Caminhamento em profundidade" << endl;
     cout << "3 - Algoritmo de Djikstra (caminho mínimo)" << endl;
-    cout << "4 - Algoritmo Guloso" << endl;
-    cout << "5 - Algoritmo Guloso Randomizado" << endl;
-    cout << "6 - Sair" << endl;
+    cout << "4 - Algoritmo de Prim" << endl;
+    cout << "5 - Algoritmo de Kruskal" << endl;
+    cout << "6 - Algoritmo Guloso" << endl;
+    cout << "7 - Algoritmo Guloso Randomizado" << endl;
+    cout << "8 - Sair" << endl;
     cout << "" << endl;
 }

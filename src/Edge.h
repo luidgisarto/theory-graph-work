@@ -14,6 +14,12 @@ public:
     Node *getAdjacent();
     Edge *getProx();
     void setProx(Edge *next);
+    inline bool operator<(Edge b) {
+        if (weight < b.getWeight())
+            return true;
+        else
+            return false;
+    }
 private:
     int weight; // peso da aresta
     Node *src; //ponteiro pro primeiro no da aresta

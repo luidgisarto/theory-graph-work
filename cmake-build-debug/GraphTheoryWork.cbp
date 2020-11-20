@@ -89,28 +89,28 @@
 		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h">
 			<Option target="GraphTheoryWork"/>
 		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/FileManager.cpp">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/FileManager.h">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
 		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.cpp">
 			<Option target="GraphTheoryWork"/>
 		</Unit>
 		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h">
 			<Option target="GraphTheoryWork"/>
 		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/MenuManager.cpp">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
+		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/MenuManager.h">
+			<Option target="GraphTheoryWork"/>
+		</Unit>
 		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.cpp">
 			<Option target="GraphTheoryWork"/>
 		</Unit>
 		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h">
-			<Option target="GraphTheoryWork"/>
-		</Unit>
-		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.cpp">
-			<Option target="GraphTheoryWork"/>
-		</Unit>
-		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.h">
-			<Option target="GraphTheoryWork"/>
-		</Unit>
-		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/MenuManager.cpp">
-			<Option target="GraphTheoryWork"/>
-		</Unit>
-		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/MenuManager.h">
 			<Option target="GraphTheoryWork"/>
 		</Unit>
 		<Unit filename="C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/CMakeLists.txt">

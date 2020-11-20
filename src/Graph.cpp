@@ -5,10 +5,11 @@
 #include <stack>
 #include <chrono>
 #include <random>
-#include <math.h>
 #include <fstream>
+#include <cstring>
 #include "Graph.h"
-#include "managers/FileManager.h"
+
+using namespace std;
 
 //construtor do grafo
 Graph::Graph() {
@@ -180,7 +181,13 @@ void Graph::breadthFirstSearch(int nodeInfo, char *outputPath) {
 
     ofstream file;
     file.open(outputPath, ofstream::ios_base::app);
+
+    if (!file.is_open()) {
+        throw invalid_argument("Erro ao abrir arquivo para escrita no diretório.");
+    }
+
     file << endl << "-----Execução da busca em Largura-----" << endl << endl;
+    file << "Instância: " << this->instanceName << endl;
 
     Node *p = getNode(nodeInfo);
     queue<int> queue;
@@ -234,7 +241,12 @@ void Graph::depthFirstSearch(int nodeInfo, char *outputPath) {
     stack<int> stack;
 
     file.open(outputPath, ofstream::ios_base::app);
-    file << endl << "-------Execução da Busca em profundidade--------" <<endl << endl;
+    if (!file.is_open()) {
+        throw invalid_argument("Erro ao abrir arquivo para escrita no diretório.");
+    }
+
+    file << endl << "-------Execução da Busca em profundidade--------" << endl << endl;
+    file << "Instância: " << this->instanceName << endl;
 
     if (!p) {
         file << "Não foi encontrado nenhum nó: " << nodeInfo;
@@ -286,14 +298,18 @@ int Graph::djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath) {
 
     file.open(outputPath, ofstream::ios_base::app);
 
+    if (!file.is_open()) {
+        throw invalid_argument("Erro ao abrir arquivo para escrita no diretório.");
+    }
+
     file << endl << "-------Execução do algoritmo de Djikstra-----" << endl << endl;
+    file << "Instância: " << this->instanceName << endl;
 
     int dist[this->order];
     bool visited[this->order];
 
-    if (hasNode(srcInfo) && hasNode(destInfo)) {
+    if (hasNode(srcInfo)) {
         Node *start = getNode(srcInfo);
-        Node *dest = getNode(destInfo);
 
         for (int i = 0; i < this->order; ++i) {
             visited[i] = false;
@@ -346,16 +362,101 @@ int Graph::djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath) {
             file << "D(" << i << ")= " << dist[i] << endl;
         }
 
-        // retorna a distância mínima até o destino
-        file << "D(" << srcInfo << "," << destInfo << ") = " << dist[dest->getIndex()] << endl;
-        return dist[dest->getIndex()];
+        Node *dest = getNode(destInfo);
+
+        if (hasNode(destInfo)) {
+            // retorna a distância mínima até o destino
+            file << "D(" << srcInfo << "," << destInfo << ") = " << dist[dest->getIndex()] << endl;
+            return dist[dest->getIndex()];
+        }
+        file << "Não foi encontrado o nó de destino" << endl;
+        return 0;
     }
 
-    file << "Não foi encontrado o nó de partida ou nó de saíde" << endl;
+    file << "Não foi encontrado o nó de partida" << endl;
 
     file.close();
 
     return 0;
+}
+
+void Graph::kruskalAlgorithm(char *outputPath) {
+    ofstream file;
+
+    file.open(outputPath, ofstream::ios_base::app);
+
+    if (!file.is_open()) {
+        throw invalid_argument("Erro ao abrir arquivo para escrita no diretório.");
+    }
+
+    file << endl << "-------Execução do algoritmo de Kruskal-----" << endl << endl;
+    file << "Instância: " << this->instanceName << endl;
+
+    vector<pair<int, int >> s;
+    vector<char> subTree;
+    auto edges = getAllEdgesOrdered();
+    auto nodes = getAllNodes();
+
+    //Inicializa com n subárvores
+    for (auto it = nodes.begin(); it != nodes.end(); it++) {
+        subTree.push_back(it->getIndex());
+    }
+
+    int counter = 0;
+    while (counter < this->order - 1
+           && !edges.empty()) {
+        auto aux = edges.front();
+        edges.pop_front();
+        //busca os nós envolvidos na aresta
+        auto n1 = aux.getSource();
+        auto n2 = aux.getAdjacent();
+
+        //verifica se estão na mesma subárvore
+        if (subTree[n1->getIndex()] != subTree[n2->getIndex()]) {
+
+            //faz a união das subárvores individuais
+            subTree[n1->getIndex()] = -1;
+            subTree[n2->getIndex()] = -1;
+
+            //adiciona a aresta na solução
+            s.push_back(make_pair(n1->getInfo(), n2->getInfo()));
+            counter++;
+        }
+    }
+
+    for (int i = 0; i < s.size(); ++i) {
+        file << "(" << s[i].first << "," << s[i].second << ")" << endl;
+    }
+}
+
+void Graph::primAlgorithm(char *outputPath) {
+    auto allEdges = getAllEdgesOrdered();
+    auto nodes = getAllNodes();
+    vector<pair<int, int>> s;
+    auto lowerEdge = allEdges.front();
+    auto p = lowerEdge.getSource();
+    auto adj = lowerEdge.getAdjacent();
+    s.push_back(make_pair(p->getInfo(), adj->getInfo()));
+    int subTree[this->order];
+
+    memset(subTree, 0, sizeof(subTree));
+
+    subTree[p->getIndex()] = -1;
+
+    while (s.size() < this->order) {
+        allEdges.pop_front();
+        auto minEdge = allEdges.front();
+        p = minEdge.getSource();
+        auto q = minEdge.getAdjacent();
+        if (subTree[q->getIndex()] != -1) {
+            subTree[q->getIndex()] = -1;
+            s.push_back(make_pair(p->getInfo(), q->getInfo()));
+        }
+    }
+
+    for (int i = 0; i < s.size(); ++i) {
+        cout << "(" << s[i].first << "," << s[i].second << ")" << endl;
+    }
 }
 
 void Graph::greedyAlgorithm(char *outputPath) {
@@ -363,7 +464,12 @@ void Graph::greedyAlgorithm(char *outputPath) {
 
     file.open(outputPath, ofstream::ios_base::app);
 
+    if (!file.is_open()) {
+        throw invalid_argument("Erro ao abrir arquivo para escrita no diretório.");
+    }
+
     file << endl << "------Execução do algoritmo guloso-------" << endl;
+    file << "Instância: " << this->instanceName << endl;
 
     auto start = chrono::steady_clock::now();
 
@@ -377,40 +483,53 @@ void Graph::greedyAlgorithm(char *outputPath) {
         candidates = updateCandidates(item, candidates);
     }
     auto end = chrono::steady_clock::now();
-    file << "S = "<< sol.size() << endl;
-    file << "Tempo em milisegundos: " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms" << endl;
-    file << "Tempo em segundos: " <<chrono::duration_cast<chrono::milliseconds>(end - start).count() / 1000.00 << "s" << endl;
+    file << "S = " << sol.size() << endl;
+    file << "Tempo(ms): " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << "ms"
+         << endl;
+    file << "Tempo(s): " << (float) (chrono::duration_cast<chrono::milliseconds>(end - start).count() / 1000.00) << "s"
+         << endl;
 
     file.close();
 }
 
 void Graph::executeMinimalDominantSubset(int iterationsAlpha, char *outputPath) {
-    ofstream  file;
+    ofstream file;
 
     file.open(outputPath, ofstream::ios_base::app);
 
-    file << endl << "-----Execução do Algoritmo Randomizado--" << endl << endl;
+    if (!file.is_open()) {
+        throw invalid_argument("Erro ao abrir arquivo para escrita no diretório.");
+    }
 
-    vector<double> alphas = {0.1, 0.2, 0.3, 0.5, 0.7 };
+    file << endl << "-----Execução do Algoritmo Randomizado--" << endl << endl;
+    file << "Instância: " << this->instanceName << endl;
+
+    vector<double> alphas = {0.1, 0.2, 0.3, 0.5, 0.7};
     vector<int> s;
+    vector<float> times;
     for (int i = 0; i < alphas.size(); ++i) {
         auto alfa = alphas[i];
 
-        file << "----Alfa: " << alfa << "------" << endl;
+        file << endl << "----Alfa: " << alfa << "------" << endl;
 
         for (int j = 0; j < iterationsAlpha; ++j) {
             auto start = chrono::high_resolution_clock::now();
             auto solution = randomizedGluttonousAlgorithm(alfa, 500);
             auto end = chrono::high_resolution_clock::now();
             auto duration = end - start;
-            auto time = chrono::duration_cast<chrono::milliseconds>(duration).count();
-            file << "iteração: " << j << endl;
-            file <<  "$ = "<< solution.size() << endl;
-            file << "Tempo: "<< time << "ms " << time/1000.00 << "s" << endl;
+            auto miliSeconds = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+            auto seconds = (float) (miliSeconds / 1000.00);
+            file << "Iteração: " << j << endl;
+            file << "S = " << solution.size() << endl;
+            file << "Tempo(ms): " << miliSeconds << "ms " << endl;
+            file << "Tempo(s): " << seconds << "s " << endl;
             file << endl;
             s.push_back(solution.size());
+            times.push_back(seconds);
         }
-        file << "Média = " << calculateMedia(s) << endl << endl;
+        auto mediaTempoMili = calculateMedia(times);
+        file << "Média do Valor(S) = " << calculateMedia(s) << endl;
+        file << "Média do Tempo(s) = " << mediaTempoMili << "s" << endl;
     }
 
     file.close();
@@ -421,7 +540,18 @@ double Graph::calculateMedia(vector<int> values) {
     for (int i = 0; i < values.size(); ++i) {
         total += values[i];
     }
-    return total / values.size();
+    auto media = (float) (total / values.size());
+    return media;
+}
+
+float Graph::calculateMedia(vector<float> values) {
+    float total = 0;
+    for (int i = 0; i < values.size(); ++i) {
+        float value = values[i];
+        total += value;
+    }
+    auto media = (float) (total / values.size());
+    return media;
 }
 
 vector<int> Graph::randomizedGluttonousAlgorithm(float alfa, int maxIterations) {
@@ -452,6 +582,27 @@ list<Node> Graph::getAllNodes() {
     return all;
 }
 
+list<Edge> Graph::getAllEdgesOrdered() {
+    list<Edge> edges;
+    Node *p = first;
+    Edge *e = nullptr;
+    while (p) {
+        e = p->getFirstEdge();
+        while (e) {
+            edges.push_back(*e);
+            e = e->getProx();
+        }
+        p = p->getProx();
+    }
+    edges.sort();
+
+    return edges;
+}
+
+Edge Graph::getLowerEdge() {
+    return getAllEdgesOrdered().front();
+}
+
 list<Node> Graph::sortCandidates(list<Node> candidates) {
     candidates.sort();
     return candidates;
@@ -461,9 +612,9 @@ list<Node> Graph::updateCandidates(Node current, list<Node> candidates) {
     auto adjacents = current.getAllAdjacents();
 
     for (int i = 0; i < adjacents.size(); ++i) {
-        candidates.remove_if([&](Node node){
-            if(current.getInfo() == node.getInfo()
-            || node.getInfo() == adjacents[i]){
+        candidates.remove_if([&](Node node) {
+            if (current.getInfo() == node.getInfo()
+                || node.getInfo() == adjacents[i]) {
                 return true;
             }
             return false;
@@ -478,4 +629,8 @@ Node Graph::getRandomElement(list<Node> candidates, float alfa) {
     auto it = candidates.begin();
     advance(it, position);
     return it.operator*();
+}
+
+void Graph::setInstanceName(char *instanceName) {
+    this->instanceName = instanceName;
 }

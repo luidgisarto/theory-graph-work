@@ -41,6 +41,8 @@ void FileManager::readFile() {
     graph->setTotalNodes(total);
     //cout << total <<endl;
 
+    graph->setInstanceName(this->inputFileName);
+
     while (file >> n1 >> n2 >> edgeWeight) {
         //cout << to_string(n1) + " " + to_string(n2) + " " + to_string(edgeWeight) <<endl;
         //cria a aresta da linha do arquivo
@@ -55,6 +57,7 @@ void FileManager::readFile() {
 void FileManager::readFileMatrix() {
     fstream file;
     file.open(this->inputFileName);
+
     //cout << "Lendo arquivo" << endl;
     if(!file.is_open()) {
         //cout << "Erro ao abrir o arquivo " << endl;
@@ -72,6 +75,8 @@ void FileManager::readFileMatrix() {
     //atribui no grafo o total de nós lido do arquivo
     graph->setTotalNodes(total);
     //cout << total <<endl;
+
+    graph->setInstanceName(this->inputFileName);
 
 //    queue<int> edges;
 //    int edge = -1;
@@ -115,15 +120,15 @@ void FileManager::writeFile() {
     file.open(this->outputFileName, ofstream::ios_base::app);
 
     if(!file.is_open()) {
-        throw invalid_argument("Erro ao abrir arquivo para escrita.");
+        throw invalid_argument("Erro ao abrir arquivo para escrita no diretório.");
     }
-
 
     file << "" << endl;
     file << "-------------- Trabalho de Grafos -------------------" << endl;
     file << "-------------- Luidgi Sarto Lacerda -----------------" << endl;
     file << "-------------- Sistemas de Informação ---------------" << endl;
     file << "-------------- 201176023 ----------------------------" << endl;
+    file << "Instância: " << this->inputFileName << endl;
     file << "" << endl;
 
     file << "Vértices: " << graph->getOrder() << endl;

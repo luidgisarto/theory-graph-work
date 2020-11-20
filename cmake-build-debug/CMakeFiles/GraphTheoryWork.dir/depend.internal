@@ -4,27 +4,28 @@
 CMakeFiles/GraphTheoryWork.dir/main.cpp.obj
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/main.cpp
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
+ C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/FileManager.h
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
+ C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/MenuManager.h
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
- C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.h
- C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/MenuManager.h
 CMakeFiles/GraphTheoryWork.dir/src/Edge.cpp.obj
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.cpp
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
+CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj
+ C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
+ C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/FileManager.cpp
+ C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/FileManager.h
+ C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
+ C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
 CMakeFiles/GraphTheoryWork.dir/src/Graph.cpp.obj
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.cpp
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
- C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.h
+CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.obj
+ C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/MenuManager.cpp
+ C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/MenuManager.h
 CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.obj
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.cpp
  C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
-CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj
- C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Edge.h
- C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Graph.h
- C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/Node.h
- C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.cpp
- C:/Users/Luidgi Sarto/Documents/Grafos/Trabalho/GraphTheoryWork/src/managers/FileManager.h
-CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.obj

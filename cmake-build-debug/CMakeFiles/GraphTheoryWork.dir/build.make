@@ -128,31 +128,31 @@ CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.s"
 	D:\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\Node.cpp" -o CMakeFiles\GraphTheoryWork.dir\src\Node.cpp.s
 
-CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj: CMakeFiles/GraphTheoryWork.dir/flags.make
-CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj: ../src/managers/FileManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj"
-	D:\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\GraphTheoryWork.dir\src\managers\FileManager.cpp.obj -c "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\managers\FileManager.cpp"
+CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj: CMakeFiles/GraphTheoryWork.dir/flags.make
+CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj: ../src/FileManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj"
+	D:\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\GraphTheoryWork.dir\src\FileManager.cpp.obj -c "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\FileManager.cpp"
 
-CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.i"
-	D:\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\managers\FileManager.cpp" > CMakeFiles\GraphTheoryWork.dir\src\managers\FileManager.cpp.i
+CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.i"
+	D:\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\FileManager.cpp" > CMakeFiles\GraphTheoryWork.dir\src\FileManager.cpp.i
 
-CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.s"
-	D:\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\managers\FileManager.cpp" -o CMakeFiles\GraphTheoryWork.dir\src\managers\FileManager.cpp.s
+CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.s"
+	D:\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\FileManager.cpp" -o CMakeFiles\GraphTheoryWork.dir\src\FileManager.cpp.s
 
-CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.obj: CMakeFiles/GraphTheoryWork.dir/flags.make
-CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.obj: ../src/managers/MenuManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.obj"
-	D:\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\GraphTheoryWork.dir\src\managers\MenuManager.cpp.obj -c "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\managers\MenuManager.cpp"
+CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.obj: CMakeFiles/GraphTheoryWork.dir/flags.make
+CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.obj: ../src/MenuManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.obj"
+	D:\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\GraphTheoryWork.dir\src\MenuManager.cpp.obj -c "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\MenuManager.cpp"
 
-CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.i"
-	D:\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\managers\MenuManager.cpp" > CMakeFiles\GraphTheoryWork.dir\src\managers\MenuManager.cpp.i
+CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.i"
+	D:\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\MenuManager.cpp" > CMakeFiles\GraphTheoryWork.dir\src\MenuManager.cpp.i
 
-CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.s"
-	D:\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\managers\MenuManager.cpp" -o CMakeFiles\GraphTheoryWork.dir\src\managers\MenuManager.cpp.s
+CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.s"
+	D:\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Luidgi Sarto\Documents\Grafos\Trabalho\GraphTheoryWork\src\MenuManager.cpp" -o CMakeFiles\GraphTheoryWork.dir\src\MenuManager.cpp.s
 
 # Object files for target GraphTheoryWork
 GraphTheoryWork_OBJECTS = \
@@ -160,8 +160,8 @@ GraphTheoryWork_OBJECTS = \
 "CMakeFiles/GraphTheoryWork.dir/src/Graph.cpp.obj" \
 "CMakeFiles/GraphTheoryWork.dir/src/Edge.cpp.obj" \
 "CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.obj" \
-"CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj" \
-"CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.obj"
+"CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj" \
+"CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.obj"
 
 # External object files for target GraphTheoryWork
 GraphTheoryWork_EXTERNAL_OBJECTS =
@@ -170,8 +170,8 @@ GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/main.cpp.obj
 GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/src/Graph.cpp.obj
 GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/src/Edge.cpp.obj
 GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/src/Node.cpp.obj
-GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/src/managers/FileManager.cpp.obj
-GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/src/managers/MenuManager.cpp.obj
+GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/src/FileManager.cpp.obj
+GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/src/MenuManager.cpp.obj
 GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/build.make
 GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/linklibs.rsp
 GraphTheoryWork.exe: CMakeFiles/GraphTheoryWork.dir/objects1.rsp

@@ -14,6 +14,7 @@ private:
     int totalNodes; //total de nós lido pelo arquivo
     int order; // ordem do grafo
     Node *first; // ponteiro pro primeiro nó da lista
+    char *instanceName; // nome da instância rodando
 public:
     Graph();
     ~Graph();
@@ -31,14 +32,19 @@ public:
     void depthFirstSearch(int nodeInfo, char *outputPath);
     int djisktraAlgorithm(int srcInfo, int destInfo, char *outputPath);
     void greedyAlgorithm(char *outputFile);
+    void primAlgorithm(char *outputPath);
+    void kruskalAlgorithm(char *outputPath);
     list<Node> getAllNodes();
     list <Node> sortCandidates(list<Node> candidates);
     list<Node> updateCandidates(Node current, list<Node> candidates);
     vector<int> randomizedGluttonousAlgorithm(float alfa, int maxIterations);
     Node getRandomElement(list<Node> candidates, float alfa);
     void executeMinimalDominantSubset(int iterationsAlpha, char *outputPath);
-
     double calculateMedia(vector<int> solutions);
+    float calculateMedia(vector<float> values);
+    void setInstanceName(char *instanceName);
+    list<Edge> getAllEdgesOrdered();
+    Edge getLowerEdge();
 };
 
 

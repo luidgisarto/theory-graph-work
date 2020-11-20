@@ -2,7 +2,7 @@
 #define GRAPHTHEORYWORK_FILEMANAGER_H
 
 
-#include "../Graph.h"
+#include "Graph.h"
 
 class FileManager {
 private:
